@@ -129,8 +129,8 @@ class ContactListAssociations implements ArrayAccess
         return self::$getters;
     }
 
-    const STATUS_D = 'd';
     const STATUS_U = 'u';
+    const STATUS_D = 'd';
     const STATUS_B = 'b';
     const STATUS_A = 'a';
     
@@ -143,8 +143,8 @@ class ContactListAssociations implements ArrayAccess
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_D,
             self::STATUS_U,
+            self::STATUS_D,
             self::STATUS_B,
             self::STATUS_A,
         ];
@@ -184,7 +184,7 @@ class ContactListAssociations implements ArrayAccess
         if ($this->container['list_id'] === null) {
             $invalid_properties[] = "'list_id' can't be null";
         }
-        $allowed_values = array("d", "u", "b", "a");
+        $allowed_values = array("u", "d", "b", "a");
         if (!in_array($this->container['status'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'status', must be one of #{allowed_values}.";
         }
@@ -206,7 +206,7 @@ class ContactListAssociations implements ArrayAccess
         if ($this->container['list_id'] === null) {
             return false;
         }
-        $allowed_values = array("d", "u", "b", "a");
+        $allowed_values = array("u", "d", "b", "a");
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -293,9 +293,9 @@ class ContactListAssociations implements ArrayAccess
      */
     public function setStatus($status)
     {
-        $allowed_values = array('d', 'u', 'b', 'a');
+        $allowed_values = array('u', 'd', 'b', 'a');
         if (!in_array($status, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'd', 'u', 'b', 'a'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of 'u', 'd', 'b', 'a'");
         }
         $this->container['status'] = $status;
 

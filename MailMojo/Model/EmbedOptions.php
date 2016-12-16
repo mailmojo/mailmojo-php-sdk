@@ -129,9 +129,9 @@ class EmbedOptions implements ArrayAccess
         return self::$getters;
     }
 
+    const LOCALE_SV_SE = 'sv_SE';
     const LOCALE_EN_US = 'en_US';
     const LOCALE_NB_NO = 'nb_NO';
-    const LOCALE_SV_SE = 'sv_SE';
     
 
     
@@ -142,9 +142,9 @@ class EmbedOptions implements ArrayAccess
     public function getLocaleAllowableValues()
     {
         return [
+            self::LOCALE_SV_SE,
             self::LOCALE_EN_US,
             self::LOCALE_NB_NO,
-            self::LOCALE_SV_SE,
         ];
     }
     
@@ -176,7 +176,7 @@ class EmbedOptions implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("en_US", "nb_NO", "sv_SE");
+        $allowed_values = array("sv_SE", "en_US", "nb_NO");
         if (!in_array($this->container['locale'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'locale', must be one of #{allowed_values}.";
         }
@@ -192,7 +192,7 @@ class EmbedOptions implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("en_US", "nb_NO", "sv_SE");
+        $allowed_values = array("sv_SE", "en_US", "nb_NO");
         if (!in_array($this->container['locale'], $allowed_values)) {
             return false;
         }
@@ -279,9 +279,9 @@ class EmbedOptions implements ArrayAccess
      */
     public function setLocale($locale)
     {
-        $allowed_values = array('en_US', 'nb_NO', 'sv_SE');
+        $allowed_values = array('sv_SE', 'en_US', 'nb_NO');
         if (!in_array($locale, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'locale', must be one of 'en_US', 'nb_NO', 'sv_SE'");
+            throw new \InvalidArgumentException("Invalid value for 'locale', must be one of 'sv_SE', 'en_US', 'nb_NO'");
         }
         $this->container['locale'] = $locale;
 

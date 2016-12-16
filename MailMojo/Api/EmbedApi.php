@@ -103,7 +103,7 @@ class EmbedApi
     }
 
     /**
-     * Operation embedPost
+     * Operation createEmbedSession
      *
      * Create a new embedded application session.
      *
@@ -111,14 +111,14 @@ class EmbedApi
      * @return string
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function embedPost($config = null)
+    public function createEmbedSession($config = null)
     {
-        list($response) = $this->embedPostWithHttpInfo($config);
+        list($response) = $this->createEmbedSessionWithHttpInfo($config);
         return $response;
     }
 
     /**
-     * Operation embedPostWithHttpInfo
+     * Operation createEmbedSessionWithHttpInfo
      *
      * Create a new embedded application session.
      *
@@ -126,7 +126,7 @@ class EmbedApi
      * @return Array of string, HTTP status code, HTTP response headers (array of strings)
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function embedPostWithHttpInfo($config = null)
+    public function createEmbedSessionWithHttpInfo($config = null)
     {
         // parse inputs
         $resourcePath = "/embed/";

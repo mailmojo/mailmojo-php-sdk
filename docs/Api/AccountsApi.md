@@ -4,13 +4,13 @@ All URIs are relative to *https://api.mailmojo.no/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**accountsPost**](AccountsApi.md#accountsPost) | **POST** /accounts/ | Create an account.
-[**accountsUsernameGet**](AccountsApi.md#accountsUsernameGet) | **GET** /accounts/{username}/ | Retrieve account details.
-[**accountsUsernamePost**](AccountsApi.md#accountsUsernamePost) | **POST** /accounts/{username}/ | Update account details.
+[**createAccount**](AccountsApi.md#createAccount) | **POST** /accounts/ | Create an account.
+[**getAccountByUsername**](AccountsApi.md#getAccountByUsername) | **GET** /accounts/{username}/ | Retrieve account details.
+[**updateAccount**](AccountsApi.md#updateAccount) | **POST** /accounts/{username}/ | Update account details.
 
 
-# **accountsPost**
-> \MailMojo\Model\User accountsPost($user)
+# **createAccount**
+> \MailMojo\Model\User createAccount($user)
 
 Create an account.
 
@@ -26,10 +26,10 @@ $api_instance = new MailMojo\Api\AccountsApi();
 $user = new \MailMojo\Model\MinimalUser(); // \MailMojo\Model\MinimalUser | 
 
 try {
-    $result = $api_instance->accountsPost($user);
+    $result = $api_instance->createAccount($user);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->accountsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountsApi->createAccount: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -55,8 +55,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **accountsUsernameGet**
-> \MailMojo\Model\User accountsUsernameGet($username)
+# **getAccountByUsername**
+> \MailMojo\Model\User getAccountByUsername($username)
 
 Retrieve account details.
 
@@ -74,10 +74,10 @@ $api_instance = new MailMojo\Api\AccountsApi();
 $username = "username_example"; // string | Username of the account to get details for, or the special username \"me\" to get details about your authenticated user.
 
 try {
-    $result = $api_instance->accountsUsernameGet($username);
+    $result = $api_instance->getAccountByUsername($username);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->accountsUsernameGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountsApi->getAccountByUsername: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -103,8 +103,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **accountsUsernamePost**
-> \MailMojo\Model\User accountsUsernamePost($username)
+# **updateAccount**
+> \MailMojo\Model\User updateAccount($username)
 
 Update account details.
 
@@ -120,10 +120,10 @@ $api_instance = new MailMojo\Api\AccountsApi();
 $username = "username_example"; // string | Username of the user to update.
 
 try {
-    $result = $api_instance->accountsUsernamePost($username);
+    $result = $api_instance->updateAccount($username);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountsApi->accountsUsernamePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountsApi->updateAccount: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

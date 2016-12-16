@@ -103,28 +103,117 @@ class ListsApi
     }
 
     /**
-     * Operation listsGet
+     * Operation getListById
+     *
+     * Retrieve an email list.
+     *
+     * @param int $list_id ID of the email list to retrieve. (required)
+     * @return \MailMojo\Model\ModelList
+     * @throws \MailMojo\ApiException on non-2xx response
+     */
+    public function getListById($list_id)
+    {
+        list($response) = $this->getListByIdWithHttpInfo($list_id);
+        return $response;
+    }
+
+    /**
+     * Operation getListByIdWithHttpInfo
+     *
+     * Retrieve an email list.
+     *
+     * @param int $list_id ID of the email list to retrieve. (required)
+     * @return Array of \MailMojo\Model\ModelList, HTTP status code, HTTP response headers (array of strings)
+     * @throws \MailMojo\ApiException on non-2xx response
+     */
+    public function getListByIdWithHttpInfo($list_id)
+    {
+        // verify the required parameter 'list_id' is set
+        if ($list_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling getListById');
+        }
+        // parse inputs
+        $resourcePath = "/lists/{list_id}/";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // path params
+        if ($list_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "list_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($list_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\MailMojo\Model\ModelList',
+                '/lists/{list_id}/'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\ModelList', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\ModelList', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getLists
      *
      * Retrieve all email lists.
      *
      * @return \MailMojo\Model\ModelList[]
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function listsGet()
+    public function getLists()
     {
-        list($response) = $this->listsGetWithHttpInfo();
+        list($response) = $this->getListsWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation listsGetWithHttpInfo
+     * Operation getListsWithHttpInfo
      *
      * Retrieve all email lists.
      *
      * @return Array of \MailMojo\Model\ModelList[], HTTP status code, HTTP response headers (array of strings)
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function listsGetWithHttpInfo()
+    public function getListsWithHttpInfo()
     {
         // parse inputs
         $resourcePath = "/lists/";
@@ -178,96 +267,7 @@ class ListsApi
     }
 
     /**
-     * Operation listsListIdGet
-     *
-     * Retrieve an email list.
-     *
-     * @param int $list_id ID of the email list to retrieve. (required)
-     * @return \MailMojo\Model\ModelList
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdGet($list_id)
-    {
-        list($response) = $this->listsListIdGetWithHttpInfo($list_id);
-        return $response;
-    }
-
-    /**
-     * Operation listsListIdGetWithHttpInfo
-     *
-     * Retrieve an email list.
-     *
-     * @param int $list_id ID of the email list to retrieve. (required)
-     * @return Array of \MailMojo\Model\ModelList, HTTP status code, HTTP response headers (array of strings)
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdGetWithHttpInfo($list_id)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdGet');
-        }
-        // parse inputs
-        $resourcePath = "/lists/{list_id}/";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "list_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($list_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\MailMojo\Model\ModelList',
-                '/lists/{list_id}/'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\ModelList', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\ModelList', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listsListIdPatch
+     * Operation updateList
      *
      * Update an email list partially.
      *
@@ -275,14 +275,14 @@ class ListsApi
      * @return \MailMojo\Model\ModelList
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function listsListIdPatch($list_id)
+    public function updateList($list_id)
     {
-        list($response) = $this->listsListIdPatchWithHttpInfo($list_id);
+        list($response) = $this->updateListWithHttpInfo($list_id);
         return $response;
     }
 
     /**
-     * Operation listsListIdPatchWithHttpInfo
+     * Operation updateListWithHttpInfo
      *
      * Update an email list partially.
      *
@@ -290,11 +290,11 @@ class ListsApi
      * @return Array of \MailMojo\Model\ModelList, HTTP status code, HTTP response headers (array of strings)
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function listsListIdPatchWithHttpInfo($list_id)
+    public function updateListWithHttpInfo($list_id)
     {
         // verify the required parameter 'list_id' is set
         if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdPatch');
+            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling updateList');
         }
         // parse inputs
         $resourcePath = "/lists/{list_id}/";
@@ -347,501 +347,6 @@ class ListsApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\ModelList', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listsListIdSubscribersEmailDelete
-     *
-     * Unsubscribe a contact.
-     *
-     * @param int $list_id ID of the email list to unsubscribe from. (required)
-     * @param string $email Email address of the contact to unsubscribe. (required)
-     * @return \MailMojo\Model\Contact
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersEmailDelete($list_id, $email)
-    {
-        list($response) = $this->listsListIdSubscribersEmailDeleteWithHttpInfo($list_id, $email);
-        return $response;
-    }
-
-    /**
-     * Operation listsListIdSubscribersEmailDeleteWithHttpInfo
-     *
-     * Unsubscribe a contact.
-     *
-     * @param int $list_id ID of the email list to unsubscribe from. (required)
-     * @param string $email Email address of the contact to unsubscribe. (required)
-     * @return Array of \MailMojo\Model\Contact, HTTP status code, HTTP response headers (array of strings)
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersEmailDeleteWithHttpInfo($list_id, $email)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdSubscribersEmailDelete');
-        }
-        // verify the required parameter 'email' is set
-        if ($email === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email when calling listsListIdSubscribersEmailDelete');
-        }
-        // parse inputs
-        $resourcePath = "/lists/{list_id}/subscribers/{email}/";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "list_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($list_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($email !== null) {
-            $resourcePath = str_replace(
-                "{" . "email" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\MailMojo\Model\Contact',
-                '/lists/{list_id}/subscribers/{email}/'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\Contact', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\Contact', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listsListIdSubscribersEmailGet
-     *
-     * Retrieve a subscriber.
-     *
-     * @param int $list_id ID of the email list to retrieve the subscriber from. (required)
-     * @param string $email Email address of the contact to retrieve. (required)
-     * @return \MailMojo\Model\Subscriber[]
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersEmailGet($list_id, $email)
-    {
-        list($response) = $this->listsListIdSubscribersEmailGetWithHttpInfo($list_id, $email);
-        return $response;
-    }
-
-    /**
-     * Operation listsListIdSubscribersEmailGetWithHttpInfo
-     *
-     * Retrieve a subscriber.
-     *
-     * @param int $list_id ID of the email list to retrieve the subscriber from. (required)
-     * @param string $email Email address of the contact to retrieve. (required)
-     * @return Array of \MailMojo\Model\Subscriber[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersEmailGetWithHttpInfo($list_id, $email)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdSubscribersEmailGet');
-        }
-        // verify the required parameter 'email' is set
-        if ($email === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email when calling listsListIdSubscribersEmailGet');
-        }
-        // parse inputs
-        $resourcePath = "/lists/{list_id}/subscribers/{email}/";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "list_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($list_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($email !== null) {
-            $resourcePath = str_replace(
-                "{" . "email" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\MailMojo\Model\Subscriber[]',
-                '/lists/{list_id}/subscribers/{email}/'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\Subscriber[]', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\Subscriber[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listsListIdSubscribersGet
-     *
-     * Retrieve subscribers on a list.
-     *
-     * @param int $list_id ID of the email list. (required)
-     * @return \MailMojo\Model\Subscriber[]
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersGet($list_id)
-    {
-        list($response) = $this->listsListIdSubscribersGetWithHttpInfo($list_id);
-        return $response;
-    }
-
-    /**
-     * Operation listsListIdSubscribersGetWithHttpInfo
-     *
-     * Retrieve subscribers on a list.
-     *
-     * @param int $list_id ID of the email list. (required)
-     * @return Array of \MailMojo\Model\Subscriber[], HTTP status code, HTTP response headers (array of strings)
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersGetWithHttpInfo($list_id)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdSubscribersGet');
-        }
-        // parse inputs
-        $resourcePath = "/lists/{list_id}/subscribers/";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "list_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($list_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\MailMojo\Model\Subscriber[]',
-                '/lists/{list_id}/subscribers/'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\Subscriber[]', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\Subscriber[]', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listsListIdSubscribersImportPost
-     *
-     * Subscribe contacts to the email list.
-     *
-     * @param int $list_id ID of the email list to subscribe to. (required)
-     * @param \MailMojo\Model\Contacts[] $contacts  (optional)
-     * @return \MailMojo\Model\ImportResult
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersImportPost($list_id, $contacts = null)
-    {
-        list($response) = $this->listsListIdSubscribersImportPostWithHttpInfo($list_id, $contacts);
-        return $response;
-    }
-
-    /**
-     * Operation listsListIdSubscribersImportPostWithHttpInfo
-     *
-     * Subscribe contacts to the email list.
-     *
-     * @param int $list_id ID of the email list to subscribe to. (required)
-     * @param \MailMojo\Model\Contacts[] $contacts  (optional)
-     * @return Array of \MailMojo\Model\ImportResult, HTTP status code, HTTP response headers (array of strings)
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersImportPostWithHttpInfo($list_id, $contacts = null)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdSubscribersImportPost');
-        }
-        // parse inputs
-        $resourcePath = "/lists/{list_id}/subscribers/import/";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('text/csv'));
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "list_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($list_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($contacts)) {
-            $_tempBody = $contacts;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\MailMojo\Model\ImportResult',
-                '/lists/{list_id}/subscribers/import/'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\ImportResult', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\ImportResult', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), 'object', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listsListIdSubscribersPost
-     *
-     * Subscribe a contact to the email list.
-     *
-     * @param int $list_id ID of the email list to subscribe to. (required)
-     * @param \MailMojo\Model\Contact $contact  (optional)
-     * @return \MailMojo\Model\Contact
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersPost($list_id, $contact = null)
-    {
-        list($response) = $this->listsListIdSubscribersPostWithHttpInfo($list_id, $contact);
-        return $response;
-    }
-
-    /**
-     * Operation listsListIdSubscribersPostWithHttpInfo
-     *
-     * Subscribe a contact to the email list.
-     *
-     * @param int $list_id ID of the email list to subscribe to. (required)
-     * @param \MailMojo\Model\Contact $contact  (optional)
-     * @return Array of \MailMojo\Model\Contact, HTTP status code, HTTP response headers (array of strings)
-     * @throws \MailMojo\ApiException on non-2xx response
-     */
-    public function listsListIdSubscribersPostWithHttpInfo($list_id, $contact = null)
-    {
-        // verify the required parameter 'list_id' is set
-        if ($list_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $list_id when calling listsListIdSubscribersPost');
-        }
-        // parse inputs
-        $resourcePath = "/lists/{list_id}/subscribers/";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($list_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "list_id" . "}",
-                $this->apiClient->getSerializer()->toPathValue($list_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($contact)) {
-            $_tempBody = $contact;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\MailMojo\Model\Contact',
-                '/lists/{list_id}/subscribers/'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\MailMojo\Model\Contact', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\MailMojo\Model\Contact', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

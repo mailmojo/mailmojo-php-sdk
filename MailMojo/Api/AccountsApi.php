@@ -103,7 +103,7 @@ class AccountsApi
     }
 
     /**
-     * Operation accountsPost
+     * Operation createAccount
      *
      * Create an account.
      *
@@ -111,14 +111,14 @@ class AccountsApi
      * @return \MailMojo\Model\User
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function accountsPost($user)
+    public function createAccount($user)
     {
-        list($response) = $this->accountsPostWithHttpInfo($user);
+        list($response) = $this->createAccountWithHttpInfo($user);
         return $response;
     }
 
     /**
-     * Operation accountsPostWithHttpInfo
+     * Operation createAccountWithHttpInfo
      *
      * Create an account.
      *
@@ -126,11 +126,11 @@ class AccountsApi
      * @return Array of \MailMojo\Model\User, HTTP status code, HTTP response headers (array of strings)
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function accountsPostWithHttpInfo($user)
+    public function createAccountWithHttpInfo($user)
     {
         // verify the required parameter 'user' is set
         if ($user === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $user when calling accountsPost');
+            throw new \InvalidArgumentException('Missing the required parameter $user when calling createAccount');
         }
         // parse inputs
         $resourcePath = "/accounts/";
@@ -193,7 +193,7 @@ class AccountsApi
     }
 
     /**
-     * Operation accountsUsernameGet
+     * Operation getAccountByUsername
      *
      * Retrieve account details.
      *
@@ -201,14 +201,14 @@ class AccountsApi
      * @return \MailMojo\Model\User
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function accountsUsernameGet($username)
+    public function getAccountByUsername($username)
     {
-        list($response) = $this->accountsUsernameGetWithHttpInfo($username);
+        list($response) = $this->getAccountByUsernameWithHttpInfo($username);
         return $response;
     }
 
     /**
-     * Operation accountsUsernameGetWithHttpInfo
+     * Operation getAccountByUsernameWithHttpInfo
      *
      * Retrieve account details.
      *
@@ -216,11 +216,11 @@ class AccountsApi
      * @return Array of \MailMojo\Model\User, HTTP status code, HTTP response headers (array of strings)
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function accountsUsernameGetWithHttpInfo($username)
+    public function getAccountByUsernameWithHttpInfo($username)
     {
         // verify the required parameter 'username' is set
         if ($username === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $username when calling accountsUsernameGet');
+            throw new \InvalidArgumentException('Missing the required parameter $username when calling getAccountByUsername');
         }
         // parse inputs
         $resourcePath = "/accounts/{username}/";
@@ -286,7 +286,7 @@ class AccountsApi
     }
 
     /**
-     * Operation accountsUsernamePost
+     * Operation updateAccount
      *
      * Update account details.
      *
@@ -294,14 +294,14 @@ class AccountsApi
      * @return \MailMojo\Model\User
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function accountsUsernamePost($username)
+    public function updateAccount($username)
     {
-        list($response) = $this->accountsUsernamePostWithHttpInfo($username);
+        list($response) = $this->updateAccountWithHttpInfo($username);
         return $response;
     }
 
     /**
-     * Operation accountsUsernamePostWithHttpInfo
+     * Operation updateAccountWithHttpInfo
      *
      * Update account details.
      *
@@ -309,11 +309,11 @@ class AccountsApi
      * @return Array of \MailMojo\Model\User, HTTP status code, HTTP response headers (array of strings)
      * @throws \MailMojo\ApiException on non-2xx response
      */
-    public function accountsUsernamePostWithHttpInfo($username)
+    public function updateAccountWithHttpInfo($username)
     {
         // verify the required parameter 'username' is set
         if ($username === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $username when calling accountsUsernamePost');
+            throw new \InvalidArgumentException('Missing the required parameter $username when calling updateAccount');
         }
         // parse inputs
         $resourcePath = "/accounts/{username}/";

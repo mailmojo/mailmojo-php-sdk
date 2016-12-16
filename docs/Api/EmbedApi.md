@@ -4,11 +4,11 @@ All URIs are relative to *https://api.mailmojo.no/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**embedPost**](EmbedApi.md#embedPost) | **POST** /embed/ | Create a new embedded application session.
+[**createEmbedSession**](EmbedApi.md#createEmbedSession) | **POST** /embed/ | Create a new embedded application session.
 
 
-# **embedPost**
-> string embedPost($config)
+# **createEmbedSession**
+> string createEmbedSession($config)
 
 Create a new embedded application session.
 
@@ -24,10 +24,10 @@ $api_instance = new MailMojo\Api\EmbedApi();
 $config = new \MailMojo\Model\Embed(); // \MailMojo\Model\Embed | 
 
 try {
-    $result = $api_instance->embedPost($config);
+    $result = $api_instance->createEmbedSession($config);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EmbedApi->embedPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling EmbedApi->createEmbedSession: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
