@@ -68,6 +68,7 @@ class EmbedOptions implements ArrayAccess
     protected static $swaggerTypes = array(
         'enable_dev_features' => 'bool',
         'enable_newsletters_index' => 'bool',
+        'enable_subscription_management' => 'bool',
         'enable_theme' => 'bool',
         'locale' => 'string',
         'media_url' => 'string'
@@ -85,6 +86,7 @@ class EmbedOptions implements ArrayAccess
     protected static $attributeMap = array(
         'enable_dev_features' => 'enable_dev_features',
         'enable_newsletters_index' => 'enable_newsletters_index',
+        'enable_subscription_management' => 'enable_subscription_management',
         'enable_theme' => 'enable_theme',
         'locale' => 'locale',
         'media_url' => 'media_url'
@@ -102,6 +104,7 @@ class EmbedOptions implements ArrayAccess
     protected static $setters = array(
         'enable_dev_features' => 'setEnableDevFeatures',
         'enable_newsletters_index' => 'setEnableNewslettersIndex',
+        'enable_subscription_management' => 'setEnableSubscriptionManagement',
         'enable_theme' => 'setEnableTheme',
         'locale' => 'setLocale',
         'media_url' => 'setMediaUrl'
@@ -119,6 +122,7 @@ class EmbedOptions implements ArrayAccess
     protected static $getters = array(
         'enable_dev_features' => 'getEnableDevFeatures',
         'enable_newsletters_index' => 'getEnableNewslettersIndex',
+        'enable_subscription_management' => 'getEnableSubscriptionManagement',
         'enable_theme' => 'getEnableTheme',
         'locale' => 'getLocale',
         'media_url' => 'getMediaUrl'
@@ -163,6 +167,7 @@ class EmbedOptions implements ArrayAccess
     {
         $this->container['enable_dev_features'] = isset($data['enable_dev_features']) ? $data['enable_dev_features'] : null;
         $this->container['enable_newsletters_index'] = isset($data['enable_newsletters_index']) ? $data['enable_newsletters_index'] : null;
+        $this->container['enable_subscription_management'] = isset($data['enable_subscription_management']) ? $data['enable_subscription_management'] : null;
         $this->container['enable_theme'] = isset($data['enable_theme']) ? $data['enable_theme'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['media_url'] = isset($data['media_url']) ? $data['media_url'] : null;
@@ -238,6 +243,27 @@ class EmbedOptions implements ArrayAccess
     public function setEnableNewslettersIndex($enable_newsletters_index)
     {
         $this->container['enable_newsletters_index'] = $enable_newsletters_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_subscription_management
+     * @return bool
+     */
+    public function getEnableSubscriptionManagement()
+    {
+        return $this->container['enable_subscription_management'];
+    }
+
+    /**
+     * Sets enable_subscription_management
+     * @param bool $enable_subscription_management
+     * @return $this
+     */
+    public function setEnableSubscriptionManagement($enable_subscription_management)
+    {
+        $this->container['enable_subscription_management'] = $enable_subscription_management;
 
         return $this;
     }
