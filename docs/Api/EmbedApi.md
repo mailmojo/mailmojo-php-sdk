@@ -18,13 +18,18 @@ Create a new embedded application session.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: mailmojo_auth
-MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new MailMojo\Api\EmbedApi();
-$config = new \MailMojo\Model\Embed(); // \MailMojo\Model\Embed | 
+$apiInstance = new MailMojo\Api\EmbedApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$config = new \MailMojo\MailMojo\Model\Embed(); // \MailMojo\MailMojo\Model\Embed | 
 
 try {
-    $result = $api_instance->createEmbedSession($config);
+    $result = $apiInstance->createEmbedSession($config);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmbedApi->createEmbedSession: ', $e->getMessage(), PHP_EOL;
@@ -36,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config** | [**\MailMojo\Model\Embed**](../Model/\MailMojo\Model\Embed.md)|  | [optional]
+ **config** | [**\MailMojo\MailMojo\Model\Embed**](../Model/Embed.md)|  | [optional]
 
 ### Return type
 

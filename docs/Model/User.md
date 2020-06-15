@@ -10,9 +10,10 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **logo_url** | **string** |  | [optional] 
 **name** | **string** |  | 
+**num_contacts** | **int** |  | [optional] 
 **partner** | **string** |  | [optional] 
 **plan** | **string** |  | [optional] 
-**trial_expires** | [**\DateTime**](Date.md) |  | [optional] 
+**trial_expires** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **username** | **string** |  | [optional] 
 **zip_code** | **string** |  | [optional] 
 

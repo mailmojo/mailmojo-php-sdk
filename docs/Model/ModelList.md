@@ -12,13 +12,15 @@ Name | Type | Description | Notes
 **instagram** | **string** |  | [optional] 
 **linkedin** | **string** |  | [optional] 
 **name** | **string** |  | 
+**pinterest** | **string** |  | [optional] 
 **subscribe_redirect_url** | **string** |  | 
 **subscribe_url** | **string** |  | [optional] 
 **twitter** | **string** |  | [optional] 
-**unsubscribe_cascades** | **bool** |  | [optional] [default to true]
+**unsubscribe_cascades** | **bool** |  | [optional] 
 **unsubscribe_redirect_url** | **string** |  | 
 **unsubscribe_url** | **string** |  | [optional] 
 **website** | **string** |  | [optional] 
+**youtube** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

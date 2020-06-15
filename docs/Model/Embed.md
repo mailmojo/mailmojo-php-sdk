@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**options** | [**\MailMojo\Model\EmbedOptions**](EmbedOptions.md) |  | [optional] 
+**options** | [**\MailMojo\MailMojo\Model\EmbedOptions**](EmbedOptions.md) |  | [optional] 
 **session_type** | **string** |  | 
 **user_ip** | **string** |  | 
 
