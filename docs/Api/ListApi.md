@@ -1,19 +1,73 @@
 # MailMojo\ListApi
 
-All URIs are relative to *https://api.mailmojo.no/v1*
+All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getListById**](ListApi.md#getListById) | **GET** /lists/{list_id}/ | Retrieve an email list.
-[**getLists**](ListApi.md#getLists) | **GET** /lists/ | Retrieve all email lists.
-[**getSubscriberOnListByEmail**](ListApi.md#getSubscriberOnListByEmail) | **GET** /lists/{list_id}/subscribers/{email}/ | Retrieve a subscriber.
-[**getSubscribersOnList**](ListApi.md#getSubscribersOnList) | **GET** /lists/{list_id}/subscribers/ | Retrieve subscribers on a list.
-[**getUnsubscribedOnList**](ListApi.md#getUnsubscribedOnList) | **GET** /lists/{list_id}/unsubscribed/ | Retrieve unsubscribed contacts on a list.
-[**importSubscribersToList**](ListApi.md#importSubscribersToList) | **POST** /lists/{list_id}/subscribers/import/ | Subscribe contacts to the email list.
-[**subscribeContactToList**](ListApi.md#subscribeContactToList) | **POST** /lists/{list_id}/subscribers/ | Subscribe a contact to the email list.
-[**unsubscribeContactOnListByEmail**](ListApi.md#unsubscribeContactOnListByEmail) | **DELETE** /lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact.
-[**updateList**](ListApi.md#updateList) | **PATCH** /lists/{list_id}/ | Update an email list partially.
+[**createSegment**](ListApi.md#createSegment) | **POST** /v1/lists/{list_id}/segments/ | Create a segment in the email list.
+[**getListById**](ListApi.md#getListById) | **GET** /v1/lists/{list_id}/ | Retrieve an email list.
+[**getLists**](ListApi.md#getLists) | **GET** /v1/lists/ | Retrieve all email lists.
+[**getSubscriberOnListByEmail**](ListApi.md#getSubscriberOnListByEmail) | **GET** /v1/lists/{list_id}/subscribers/{email}/ | Retrieve a subscriber.
+[**getSubscribersOnList**](ListApi.md#getSubscribersOnList) | **GET** /v1/lists/{list_id}/subscribers/ | Retrieve subscribers on a list.
+[**getUnsubscribedOnList**](ListApi.md#getUnsubscribedOnList) | **GET** /v1/lists/{list_id}/unsubscribed/ | Retrieve unsubscribed contacts on a list.
+[**importSubscribersToList**](ListApi.md#importSubscribersToList) | **POST** /v1/lists/{list_id}/subscribers/import/ | Subscribe contacts to the email list.
+[**subscribeContactToList**](ListApi.md#subscribeContactToList) | **POST** /v1/lists/{list_id}/subscribers/ | Subscribe a contact to the email list.
+[**unsubscribeContactOnListByEmail**](ListApi.md#unsubscribeContactOnListByEmail) | **DELETE** /v1/lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact.
+[**updateList**](ListApi.md#updateList) | **PATCH** /v1/lists/{list_id}/ | Update an email list partially.
 
+
+# **createSegment**
+> \MailMojo\MailMojo\Model\Segment createSegment($list_id, $segment)
+
+Create a segment in the email list.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\ListApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = new \stdClass; // object | ID of the email list to create a segment in.
+$segment = new \MailMojo\MailMojo\Model\SegmentCreation(); // \MailMojo\MailMojo\Model\SegmentCreation | 
+
+try {
+    $result = $apiInstance->createSegment($list_id, $segment);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ListApi->createSegment: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | [**object**](../Model/.md)| ID of the email list to create a segment in. |
+ **segment** | [**\MailMojo\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
+
+### Return type
+
+[**\MailMojo\MailMojo\Model\Segment**](../Model/Segment.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getListById**
 > \MailMojo\MailMojo\Model\ListDetail getListById($list_id)
@@ -308,7 +362,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to subscribe to. |
- **contacts** | [**\MailMojo\MailMojo\Model\Contacts[]**](../Model/Contacts.md)|  | [optional]
+ **contacts** | [**\MailMojo\MailMojo\Model\Contacts[]**](../Model/Contacts.md)|  |
 
 ### Return type
 
@@ -361,7 +415,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to subscribe to. |
- **contact** | [**\MailMojo\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  | [optional]
+ **contact** | [**\MailMojo\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  |
 
 ### Return type
 
@@ -432,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateList**
-> \MailMojo\MailMojo\Model\ListDetail updateList($list_id)
+> \MailMojo\MailMojo\Model\ListDetail updateList($list_id, $list)
 
 Update an email list partially.
 
@@ -451,9 +505,10 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to retrieve.
+$list = new \MailMojo\MailMojo\Model\ListDetail(); // \MailMojo\MailMojo\Model\ListDetail | 
 
 try {
-    $result = $apiInstance->updateList($list_id);
+    $result = $apiInstance->updateList($list_id, $list);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->updateList: ', $e->getMessage(), PHP_EOL;
@@ -466,6 +521,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to retrieve. |
+ **list** | [**\MailMojo\MailMojo\Model\ListDetail**](../Model/ListDetail.md)|  | [optional]
 
 ### Return type
 

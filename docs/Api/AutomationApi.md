@@ -1,10 +1,10 @@
 # MailMojo\AutomationApi
 
-All URIs are relative to *https://api.mailmojo.no/v1*
+All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCampaignById**](AutomationApi.md#getCampaignById) | **GET** /campaigns/{campaign_id}/ | Retrieve an automation campaign by id.
+[**getCampaignById**](AutomationApi.md#getCampaignById) | **GET** /v1/campaigns/{campaign_id}/ | Retrieve an automation campaign by id.
 
 
 # **getCampaignById**

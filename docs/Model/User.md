@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **contact_email** | **string** |  | 
 **contact_name** | **string** |  | [optional] 
 **created** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**logo** | **object** |  | [optional] 
 **logo_url** | **string** |  | [optional] 
 **name** | **string** |  | 
 **num_contacts** | **int** |  | [optional] 

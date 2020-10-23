@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **email** | **string** |  | 
 **first_name** | **string** |  | [optional] 
 **last_name** | **string** |  | [optional] 
-**list_associations** | [**\MailMojo\MailMojo\Model\ContactListAssociations[]**](ContactListAssociations.md) |  | [optional] 
+**list_associations** | [**\MailMojo\MailMojo\Model\ContactList[]**](ContactList.md) |  | [optional] 
 **name** | **string** | Full name of the contact. Will, if present, take precedence over first_name and last_name. | [optional] 
 **status** | **string** |  | [optional] 
 **status_changed** | [**\DateTime**](\DateTime.md) |  | [optional] 

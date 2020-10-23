@@ -1,14 +1,14 @@
 # MailMojo\EmbedApi
 
-All URIs are relative to *https://api.mailmojo.no/v1*
+All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEmbedSession**](EmbedApi.md#createEmbedSession) | **POST** /embed/ | Create a new embedded application session.
+[**createEmbedSession**](EmbedApi.md#createEmbedSession) | **POST** /v1/embed/ | Create a new embedded application session.
 
 
 # **createEmbedSession**
-> string createEmbedSession($config)
+> string createEmbedSession($embed)
 
 Create a new embedded application session.
 
@@ -26,10 +26,10 @@ $apiInstance = new MailMojo\Api\EmbedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$config = new \MailMojo\MailMojo\Model\Embed(); // \MailMojo\MailMojo\Model\Embed | 
+$embed = new \MailMojo\MailMojo\Model\Embed(); // \MailMojo\MailMojo\Model\Embed | 
 
 try {
-    $result = $apiInstance->createEmbedSession($config);
+    $result = $apiInstance->createEmbedSession($embed);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmbedApi->createEmbedSession: ', $e->getMessage(), PHP_EOL;
@@ -41,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config** | [**\MailMojo\MailMojo\Model\Embed**](../Model/Embed.md)|  | [optional]
+ **embed** | [**\MailMojo\MailMojo\Model\Embed**](../Model/Embed.md)|  |
 
 ### Return type
 

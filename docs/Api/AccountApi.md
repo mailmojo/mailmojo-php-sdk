@@ -1,13 +1,13 @@
 # MailMojo\AccountApi
 
-All URIs are relative to *https://api.mailmojo.no/v1*
+All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAccount**](AccountApi.md#createAccount) | **POST** /accounts/ | Create an account.
-[**getAccountByUsername**](AccountApi.md#getAccountByUsername) | **GET** /accounts/{username}/ | Retrieve account details.
-[**getDomain**](AccountApi.md#getDomain) | **GET** /domains/{domain}/ | Retrieve domain details and authentication status.
-[**updateAccount**](AccountApi.md#updateAccount) | **POST** /accounts/{username}/ | Update account details.
+[**createAccount**](AccountApi.md#createAccount) | **POST** /v1/accounts/ | Create an account.
+[**getAccountByUsername**](AccountApi.md#getAccountByUsername) | **GET** /v1/accounts/{username}/ | Retrieve account details.
+[**getDomain**](AccountApi.md#getDomain) | **GET** /v1/domains/{domain}/ | Retrieve domain details and authentication status.
+[**updateAccount**](AccountApi.md#updateAccount) | **POST** /v1/accounts/{username}/ | Update account details.
 
 
 # **createAccount**
@@ -29,7 +29,7 @@ $apiInstance = new MailMojo\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = new \MailMojo\MailMojo\Model\MinimalUser(); // \MailMojo\MailMojo\Model\MinimalUser | 
+$user = new \MailMojo\MailMojo\Model\UserCreation(); // \MailMojo\MailMojo\Model\UserCreation | 
 
 try {
     $result = $apiInstance->createAccount($user);
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**\MailMojo\MailMojo\Model\MinimalUser**](../Model/MinimalUser.md)|  |
+ **user** | [**\MailMojo\MailMojo\Model\UserCreation**](../Model/UserCreation.md)|  |
 
 ### Return type
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 Retrieve account details.
 
-This endpoint can be used to get details about your own account, or a subuser associated with you as a partner. If the username of your current authenticated user is unknown, you may use the special username \"me\" to retrieve details about the authenticated user account.
+This endpoint can be used to get details about your own account, or a subuser associated with you as a partner. If the username of your current authenticated user is unknown, you may use the special username 'me' to retrieve details about the authenticated user account.
 
 ### Example
 ```php
@@ -82,7 +82,7 @@ $apiInstance = new MailMojo\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$username = "username_example"; // string | Username of the account to get details for, or the special username \"me\" to get details about your authenticated user.
+$username = "username_example"; // string | Username of the account to get details for, or the special username `me` to get details about your authenticated user.
 
 try {
     $result = $apiInstance->getAccountByUsername($username);
@@ -97,7 +97,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| Username of the account to get details for, or the special username \&quot;me\&quot; to get details about your authenticated user. |
+ **username** | **string**| Username of the account to get details for, or the special username &#x60;me&#x60; to get details about your authenticated user. |
 
 ### Return type
 

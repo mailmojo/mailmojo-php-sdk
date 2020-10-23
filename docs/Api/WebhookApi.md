@@ -1,15 +1,15 @@
 # MailMojo\WebhookApi
 
-All URIs are relative to *https://api.mailmojo.no/v1*
+All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createWebhook**](WebhookApi.md#createWebhook) | **POST** /webhooks/ | Create a webhook.
-[**deleteWebhook**](WebhookApi.md#deleteWebhook) | **DELETE** /webhooks/{id}/ | Delete a webhook.
+[**createWebhook**](WebhookApi.md#createWebhook) | **POST** /v1/webhooks/ | Create a webhook.
+[**deleteWebhook**](WebhookApi.md#deleteWebhook) | **DELETE** /v1/webhooks/{id}/ | Delete a webhook.
 
 
 # **createWebhook**
-> \MailMojo\MailMojo\Model\Webhook createWebhook($config)
+> \MailMojo\MailMojo\Model\WebhookCreation createWebhook($webhook)
 
 Create a webhook.
 
@@ -27,10 +27,10 @@ $apiInstance = new MailMojo\Api\WebhookApi(
     new GuzzleHttp\Client(),
     $config
 );
-$config = new \MailMojo\MailMojo\Model\Webhook(); // \MailMojo\MailMojo\Model\Webhook | 
+$webhook = new \MailMojo\MailMojo\Model\WebhookCreation(); // \MailMojo\MailMojo\Model\WebhookCreation | 
 
 try {
-    $result = $apiInstance->createWebhook($config);
+    $result = $apiInstance->createWebhook($webhook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->createWebhook: ', $e->getMessage(), PHP_EOL;
@@ -42,11 +42,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **config** | [**\MailMojo\MailMojo\Model\Webhook**](../Model/Webhook.md)|  | [optional]
+ **webhook** | [**\MailMojo\MailMojo\Model\WebhookCreation**](../Model/WebhookCreation.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Webhook**](../Model/Webhook.md)
+[**\MailMojo\MailMojo\Model\WebhookCreation**](../Model/WebhookCreation.md)
 
 ### Authorization
 

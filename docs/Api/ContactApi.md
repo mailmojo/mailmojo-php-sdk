@@ -1,21 +1,22 @@
 # MailMojo\ContactApi
 
-All URIs are relative to *https://api.mailmojo.no/v1*
+All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getContactByEmail**](ContactApi.md#getContactByEmail) | **GET** /contacts/{email}/ | Retrieve a contact in any list by email.
-[**getContacts**](ContactApi.md#getContacts) | **GET** /contacts/ | Retrieve all contacts across every list.
-[**getSubscriberOnListByEmail**](ContactApi.md#getSubscriberOnListByEmail) | **GET** /lists/{list_id}/subscribers/{email}/ | Retrieve a subscriber.
-[**getSubscribersOnList**](ContactApi.md#getSubscribersOnList) | **GET** /lists/{list_id}/subscribers/ | Retrieve subscribers on a list.
-[**getUnsubscribedOnList**](ContactApi.md#getUnsubscribedOnList) | **GET** /lists/{list_id}/unsubscribed/ | Retrieve unsubscribed contacts on a list.
-[**subscribeContactToList**](ContactApi.md#subscribeContactToList) | **POST** /lists/{list_id}/subscribers/ | Subscribe a contact to the email list.
-[**unsubscribeContactOnListByEmail**](ContactApi.md#unsubscribeContactOnListByEmail) | **DELETE** /lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact.
-[**updateContact**](ContactApi.md#updateContact) | **PATCH** /contacts/{email}/ | Update details about a contact.
+[**getContactByEmail**](ContactApi.md#getContactByEmail) | **GET** /v1/contacts/{email}/ | Retrieve a contact in any list by email.
+[**getContacts**](ContactApi.md#getContacts) | **GET** /v1/contacts/ | Retrieve all contacts across every list.
+[**getHistoricalContactStats**](ContactApi.md#getHistoricalContactStats) | **GET** /v1/contacts/stats/ | Retrieve historical stats over contacts across every list.
+[**getSubscriberOnListByEmail**](ContactApi.md#getSubscriberOnListByEmail) | **GET** /v1/lists/{list_id}/subscribers/{email}/ | Retrieve a subscriber.
+[**getSubscribersOnList**](ContactApi.md#getSubscribersOnList) | **GET** /v1/lists/{list_id}/subscribers/ | Retrieve subscribers on a list.
+[**getUnsubscribedOnList**](ContactApi.md#getUnsubscribedOnList) | **GET** /v1/lists/{list_id}/unsubscribed/ | Retrieve unsubscribed contacts on a list.
+[**subscribeContactToList**](ContactApi.md#subscribeContactToList) | **POST** /v1/lists/{list_id}/subscribers/ | Subscribe a contact to the email list.
+[**unsubscribeContactOnListByEmail**](ContactApi.md#unsubscribeContactOnListByEmail) | **DELETE** /v1/lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact.
+[**updateContact**](ContactApi.md#updateContact) | **PATCH** /v1/contacts/{email}/ | Update details about a contact.
 
 
 # **getContactByEmail**
-> \MailMojo\MailMojo\Model\Contact getContactByEmail()
+> \MailMojo\MailMojo\Model\Contact getContactByEmail($email)
 
 Retrieve a contact in any list by email.
 
@@ -33,9 +34,10 @@ $apiInstance = new MailMojo\Api\ContactApi(
     new GuzzleHttp\Client(),
     $config
 );
+$email = "email_example"; // string | 
 
 try {
-    $result = $apiInstance->getContactByEmail();
+    $result = $apiInstance->getContactByEmail($email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->getContactByEmail: ', $e->getMessage(), PHP_EOL;
@@ -44,7 +46,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | **string**|  |
 
 ### Return type
 
@@ -98,6 +103,57 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\MailMojo\MailMojo\Model\Contact[]**](../Model/Contact.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getHistoricalContactStats**
+> \MailMojo\MailMojo\Model\HistoricalContactsStats[] getHistoricalContactStats($start_date)
+
+Retrieve historical stats over contacts across every list.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\ContactApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$start_date = new \DateTime("2013-10-20"); // \DateTime | The starting date to include stats from.
+
+try {
+    $result = $apiInstance->getHistoricalContactStats($start_date);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContactApi->getHistoricalContactStats: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **start_date** | **\DateTime**| The starting date to include stats from. | [optional]
+
+### Return type
+
+[**\MailMojo\MailMojo\Model\HistoricalContactsStats[]**](../Model/HistoricalContactsStats.md)
 
 ### Authorization
 
@@ -305,7 +361,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to subscribe to. |
- **contact** | [**\MailMojo\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  | [optional]
+ **contact** | [**\MailMojo\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  |
 
 ### Return type
 
@@ -376,7 +432,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContact**
-> \MailMojo\MailMojo\Model\MinimalContact updateContact($email, $contact)
+> \MailMojo\MailMojo\Model\BaseContact updateContact($email, $contact)
 
 Update details about a contact.
 
@@ -395,7 +451,7 @@ $apiInstance = new MailMojo\Api\ContactApi(
     $config
 );
 $email = "email_example"; // string | Email address of contact to update.
-$contact = new \MailMojo\MailMojo\Model\MinimalContact(); // \MailMojo\MailMojo\Model\MinimalContact | 
+$contact = new \MailMojo\MailMojo\Model\BaseContact(); // \MailMojo\MailMojo\Model\BaseContact | 
 
 try {
     $result = $apiInstance->updateContact($email, $contact);
@@ -411,11 +467,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **string**| Email address of contact to update. |
- **contact** | [**\MailMojo\MailMojo\Model\MinimalContact**](../Model/MinimalContact.md)|  | [optional]
+ **contact** | [**\MailMojo\MailMojo\Model\BaseContact**](../Model/BaseContact.md)|  | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\MinimalContact**](../Model/MinimalContact.md)
+[**\MailMojo\MailMojo\Model\BaseContact**](../Model/BaseContact.md)
 
 ### Authorization
 

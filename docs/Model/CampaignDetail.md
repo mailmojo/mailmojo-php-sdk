@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **from_name** | **string** |  | 
 **id** | **int** |  | [optional] 
 **name** | **string** |  | 
-**statistics** | [**\MailMojo\MailMojo\Model\CampaignDetailStatistics**](CampaignDetailStatistics.md) |  | [optional] 
+**statistics** | [**\MailMojo\MailMojo\Model\CampaignStatistics**](CampaignStatistics.md) |  | [optional] 
 **utm_campaign** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

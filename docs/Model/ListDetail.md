@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **linkedin** | **string** |  | [optional] 
 **name** | **string** |  | 
 **pinterest** | **string** |  | [optional] 
-**segments** | [**\MailMojo\MailMojo\Model\ListDetailSegments[]**](ListDetailSegments.md) |  | [optional] 
+**segments** | [**\MailMojo\MailMojo\Model\Segment[]**](Segment.md) |  | [optional] 
 **subscribe_redirect_url** | **string** |  | 
 **subscribe_url** | **string** |  | [optional] 
 **twitter** | **string** |  | [optional] 
