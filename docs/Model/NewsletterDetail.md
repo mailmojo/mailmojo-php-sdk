@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **meta** | [**\MailMojo\MailMojo\Model\PageMeta**](PageMeta.md) |  | [optional] 
 **num_recipients** | **int** |  | [optional] 
 **plain** | **string** |  | [optional] 
+**preview_text** | **string** |  | [optional] 
 **saved** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **screenshot_url** | **object** |  | [optional] 
 **segments** | [**\MailMojo\MailMojo\Model\MinimalSegment[]**](MinimalSegment.md) |  | [optional] 

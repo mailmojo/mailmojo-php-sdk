@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **html** | **object** |  | [optional] 
 **html_url** | **string** |  | [optional] 
 **list_id** | **int** |  | 
+**preview_text** | **string** |  | [optional] 
 **segment_ids** | **object[]** |  | [optional] 
 **subject** | **string** |  | [optional] 
 **template_id** | **int** |  | [optional] 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **editor_confirmation_html** | **string** |  | [optional] 
 **editor_html** | **string** |  | [optional] 
 **expired_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**fields** | **object** |  | 
 **final_confirmation_html** | **string** |  | [optional] 
 **final_html** | **string** |  | [optional] 
 **html** | **string** |  | 
@@ -17,6 +16,7 @@ Name | Type | Description | Notes
 **lid** | **int** |  | 
 **name** | **string** |  | 
 **published_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**styles** | **string** |  | [optional] 
 **template_id** | **int** |  | [optional] 
 **type** | **string** |  | 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

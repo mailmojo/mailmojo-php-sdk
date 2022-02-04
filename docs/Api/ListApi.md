@@ -35,7 +35,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$list_id = new \stdClass; // object | ID of the email list to create a segment in.
+$list_id = 56; // int | ID of the email list to create a segment in.
 $segment = new \MailMojo\MailMojo\Model\SegmentCreation(); // \MailMojo\MailMojo\Model\SegmentCreation | 
 
 try {
@@ -51,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | [**object**](../Model/.md)| ID of the email list to create a segment in. |
+ **list_id** | **int**| ID of the email list to create a segment in. |
  **segment** | [**\MailMojo\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
 
 ### Return type
@@ -346,7 +346,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to subscribe to.
-$contacts = array(new \MailMojo\MailMojo\Model\Contacts()); // \MailMojo\MailMojo\Model\Contacts[] | 
+$contacts = "contacts_example"; // string | 
 
 try {
     $result = $apiInstance->importSubscribersToList($list_id, $contacts);
@@ -362,7 +362,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to subscribe to. |
- **contacts** | [**\MailMojo\MailMojo\Model\Contacts[]**](../Model/Contacts.md)|  |
+ **contacts** | **string**|  |
 
 ### Return type
 

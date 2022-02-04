@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **public_url** | **string** |  | [optional] 
 **published_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **slug** | **string** |  | 
+**styles** | **string** |  | [optional] 
 **subscribe_tags** | **string[]** |  | [optional] 
 **template_id** | **int** |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

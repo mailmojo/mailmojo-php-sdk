@@ -26,7 +26,7 @@ $apiInstance = new MailMojo\Api\SegmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$list_id = new \stdClass; // object | ID of the email list to create a segment in.
+$list_id = 56; // int | ID of the email list to create a segment in.
 $segment = new \MailMojo\MailMojo\Model\SegmentCreation(); // \MailMojo\MailMojo\Model\SegmentCreation | 
 
 try {
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **list_id** | [**object**](../Model/.md)| ID of the email list to create a segment in. |
+ **list_id** | **int**| ID of the email list to create a segment in. |
  **segment** | [**\MailMojo\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
 
 ### Return type
