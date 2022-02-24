@@ -60,11 +60,13 @@ class Domain implements ModelInterface, ArrayAccess
         'created_at' => '\DateTime',
         'domain' => 'string',
         'has_authentication' => 'bool',
+        'id' => 'int',
         'is_confirmed' => 'bool',
         'is_dmarc_passed' => 'bool',
         'is_dns_verified' => 'bool',
         'is_free_domain' => 'object',
-        'spf_status' => 'object'
+        'spf_status' => 'object',
+        'type' => 'string'
     ];
 
     /**
@@ -76,11 +78,13 @@ class Domain implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'domain' => null,
         'has_authentication' => null,
+        'id' => 'int32',
         'is_confirmed' => null,
         'is_dmarc_passed' => null,
         'is_dns_verified' => null,
         'is_free_domain' => null,
-        'spf_status' => null
+        'spf_status' => null,
+        'type' => null
     ];
 
     /**
@@ -113,11 +117,13 @@ class Domain implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'domain' => 'domain',
         'has_authentication' => 'has_authentication',
+        'id' => 'id',
         'is_confirmed' => 'is_confirmed',
         'is_dmarc_passed' => 'is_dmarc_passed',
         'is_dns_verified' => 'is_dns_verified',
         'is_free_domain' => 'is_free_domain',
-        'spf_status' => 'spf_status'
+        'spf_status' => 'spf_status',
+        'type' => 'type'
     ];
 
     /**
@@ -129,11 +135,13 @@ class Domain implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'domain' => 'setDomain',
         'has_authentication' => 'setHasAuthentication',
+        'id' => 'setId',
         'is_confirmed' => 'setIsConfirmed',
         'is_dmarc_passed' => 'setIsDmarcPassed',
         'is_dns_verified' => 'setIsDnsVerified',
         'is_free_domain' => 'setIsFreeDomain',
-        'spf_status' => 'setSpfStatus'
+        'spf_status' => 'setSpfStatus',
+        'type' => 'setType'
     ];
 
     /**
@@ -145,11 +153,13 @@ class Domain implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'domain' => 'getDomain',
         'has_authentication' => 'getHasAuthentication',
+        'id' => 'getId',
         'is_confirmed' => 'getIsConfirmed',
         'is_dmarc_passed' => 'getIsDmarcPassed',
         'is_dns_verified' => 'getIsDnsVerified',
         'is_free_domain' => 'getIsFreeDomain',
-        'spf_status' => 'getSpfStatus'
+        'spf_status' => 'getSpfStatus',
+        'type' => 'getType'
     ];
 
     /**
@@ -215,11 +225,13 @@ class Domain implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['has_authentication'] = isset($data['has_authentication']) ? $data['has_authentication'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['is_confirmed'] = isset($data['is_confirmed']) ? $data['is_confirmed'] : null;
         $this->container['is_dmarc_passed'] = isset($data['is_dmarc_passed']) ? $data['is_dmarc_passed'] : null;
         $this->container['is_dns_verified'] = isset($data['is_dns_verified']) ? $data['is_dns_verified'] : null;
         $this->container['is_free_domain'] = isset($data['is_free_domain']) ? $data['is_free_domain'] : null;
         $this->container['spf_status'] = isset($data['spf_status']) ? $data['spf_status'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -317,6 +329,30 @@ class Domain implements ModelInterface, ArrayAccess
     public function setHasAuthentication($has_authentication)
     {
         $this->container['has_authentication'] = $has_authentication;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }
@@ -437,6 +473,30 @@ class Domain implements ModelInterface, ArrayAccess
     public function setSpfStatus($spf_status)
     {
         $this->container['spf_status'] = $spf_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

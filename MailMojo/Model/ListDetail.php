@@ -58,12 +58,18 @@ class ListDetail implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'created' => '\DateTime',
+        'data_retention' => 'object',
         'description' => 'string',
+        'enable_link_proxy' => 'bool',
+        'enable_recaptcha' => 'bool',
+        'enable_stats_filter' => 'bool',
         'facebook' => 'string',
         'from_email' => 'string',
         'from_name' => 'string',
         'id' => 'int',
         'instagram' => 'string',
+        'is_primary' => 'bool',
+        'last_cleaned_at' => '\DateTime',
         'linkedin' => 'string',
         'name' => 'string',
         'pinterest' => 'string',
@@ -85,12 +91,18 @@ class ListDetail implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'created' => 'date-time',
+        'data_retention' => null,
         'description' => null,
+        'enable_link_proxy' => null,
+        'enable_recaptcha' => null,
+        'enable_stats_filter' => null,
         'facebook' => 'url',
         'from_email' => 'email',
         'from_name' => null,
         'id' => 'int32',
         'instagram' => null,
+        'is_primary' => null,
+        'last_cleaned_at' => 'date-time',
         'linkedin' => 'url',
         'name' => null,
         'pinterest' => null,
@@ -133,12 +145,18 @@ class ListDetail implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'created' => 'created',
+        'data_retention' => 'data_retention',
         'description' => 'description',
+        'enable_link_proxy' => 'enable_link_proxy',
+        'enable_recaptcha' => 'enable_recaptcha',
+        'enable_stats_filter' => 'enable_stats_filter',
         'facebook' => 'facebook',
         'from_email' => 'from_email',
         'from_name' => 'from_name',
         'id' => 'id',
         'instagram' => 'instagram',
+        'is_primary' => 'is_primary',
+        'last_cleaned_at' => 'last_cleaned_at',
         'linkedin' => 'linkedin',
         'name' => 'name',
         'pinterest' => 'pinterest',
@@ -160,12 +178,18 @@ class ListDetail implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'created' => 'setCreated',
+        'data_retention' => 'setDataRetention',
         'description' => 'setDescription',
+        'enable_link_proxy' => 'setEnableLinkProxy',
+        'enable_recaptcha' => 'setEnableRecaptcha',
+        'enable_stats_filter' => 'setEnableStatsFilter',
         'facebook' => 'setFacebook',
         'from_email' => 'setFromEmail',
         'from_name' => 'setFromName',
         'id' => 'setId',
         'instagram' => 'setInstagram',
+        'is_primary' => 'setIsPrimary',
+        'last_cleaned_at' => 'setLastCleanedAt',
         'linkedin' => 'setLinkedin',
         'name' => 'setName',
         'pinterest' => 'setPinterest',
@@ -187,12 +211,18 @@ class ListDetail implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'created' => 'getCreated',
+        'data_retention' => 'getDataRetention',
         'description' => 'getDescription',
+        'enable_link_proxy' => 'getEnableLinkProxy',
+        'enable_recaptcha' => 'getEnableRecaptcha',
+        'enable_stats_filter' => 'getEnableStatsFilter',
         'facebook' => 'getFacebook',
         'from_email' => 'getFromEmail',
         'from_name' => 'getFromName',
         'id' => 'getId',
         'instagram' => 'getInstagram',
+        'is_primary' => 'getIsPrimary',
+        'last_cleaned_at' => 'getLastCleanedAt',
         'linkedin' => 'getLinkedin',
         'name' => 'getName',
         'pinterest' => 'getPinterest',
@@ -268,12 +298,18 @@ class ListDetail implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['data_retention'] = isset($data['data_retention']) ? $data['data_retention'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['enable_link_proxy'] = isset($data['enable_link_proxy']) ? $data['enable_link_proxy'] : null;
+        $this->container['enable_recaptcha'] = isset($data['enable_recaptcha']) ? $data['enable_recaptcha'] : null;
+        $this->container['enable_stats_filter'] = isset($data['enable_stats_filter']) ? $data['enable_stats_filter'] : null;
         $this->container['facebook'] = isset($data['facebook']) ? $data['facebook'] : null;
         $this->container['from_email'] = isset($data['from_email']) ? $data['from_email'] : null;
         $this->container['from_name'] = isset($data['from_name']) ? $data['from_name'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['instagram'] = isset($data['instagram']) ? $data['instagram'] : null;
+        $this->container['is_primary'] = isset($data['is_primary']) ? $data['is_primary'] : null;
+        $this->container['last_cleaned_at'] = isset($data['last_cleaned_at']) ? $data['last_cleaned_at'] : null;
         $this->container['linkedin'] = isset($data['linkedin']) ? $data['linkedin'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['pinterest'] = isset($data['pinterest']) ? $data['pinterest'] : null;
@@ -313,12 +349,6 @@ class ListDetail implements ModelInterface, ArrayAccess
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['subscribe_redirect_url'] === null) {
-            $invalidProperties[] = "'subscribe_redirect_url' can't be null";
-        }
-        if ($this->container['unsubscribe_redirect_url'] === null) {
-            $invalidProperties[] = "'unsubscribe_redirect_url' can't be null";
         }
         return $invalidProperties;
     }
@@ -360,6 +390,30 @@ class ListDetail implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets data_retention
+     *
+     * @return object
+     */
+    public function getDataRetention()
+    {
+        return $this->container['data_retention'];
+    }
+
+    /**
+     * Sets data_retention
+     *
+     * @param object $data_retention If set (to a number of days), automatic cleanup of inactive contacts will be enabled and performed every X days.
+     *
+     * @return $this
+     */
+    public function setDataRetention($data_retention)
+    {
+        $this->container['data_retention'] = $data_retention;
+
+        return $this;
+    }
+
+    /**
      * Gets description
      *
      * @return string
@@ -379,6 +433,78 @@ class ListDetail implements ModelInterface, ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_link_proxy
+     *
+     * @return bool
+     */
+    public function getEnableLinkProxy()
+    {
+        return $this->container['enable_link_proxy'];
+    }
+
+    /**
+     * Sets enable_link_proxy
+     *
+     * @param bool $enable_link_proxy Beta feature: Whether to block robots from following links in newsletters.
+     *
+     * @return $this
+     */
+    public function setEnableLinkProxy($enable_link_proxy)
+    {
+        $this->container['enable_link_proxy'] = $enable_link_proxy;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_recaptcha
+     *
+     * @return bool
+     */
+    public function getEnableRecaptcha()
+    {
+        return $this->container['enable_recaptcha'];
+    }
+
+    /**
+     * Sets enable_recaptcha
+     *
+     * @param bool $enable_recaptcha Whether to enable reCAPTCHA to block spam subscriptions from the default subscribe form.
+     *
+     * @return $this
+     */
+    public function setEnableRecaptcha($enable_recaptcha)
+    {
+        $this->container['enable_recaptcha'] = $enable_recaptcha;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_stats_filter
+     *
+     * @return bool
+     */
+    public function getEnableStatsFilter()
+    {
+        return $this->container['enable_stats_filter'];
+    }
+
+    /**
+     * Sets enable_stats_filter
+     *
+     * @param bool $enable_stats_filter Beta feature: Whether to block robots that trigger opens and clicks from being tracked in reports.
+     *
+     * @return $this
+     */
+    public function setEnableStatsFilter($enable_stats_filter)
+    {
+        $this->container['enable_stats_filter'] = $enable_stats_filter;
 
         return $this;
     }
@@ -509,6 +635,54 @@ class ListDetail implements ModelInterface, ArrayAccess
     public function setInstagram($instagram)
     {
         $this->container['instagram'] = $instagram;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_primary
+     *
+     * @return bool
+     */
+    public function getIsPrimary()
+    {
+        return $this->container['is_primary'];
+    }
+
+    /**
+     * Sets is_primary
+     *
+     * @param bool $is_primary Whether this is the primary email list on the account.
+     *
+     * @return $this
+     */
+    public function setIsPrimary($is_primary)
+    {
+        $this->container['is_primary'] = $is_primary;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_cleaned_at
+     *
+     * @return \DateTime
+     */
+    public function getLastCleanedAt()
+    {
+        return $this->container['last_cleaned_at'];
+    }
+
+    /**
+     * Sets last_cleaned_at
+     *
+     * @param \DateTime $last_cleaned_at When cleanup of inactive contacts were last performed.
+     *
+     * @return $this
+     */
+    public function setLastCleanedAt($last_cleaned_at)
+    {
+        $this->container['last_cleaned_at'] = $last_cleaned_at;
 
         return $this;
     }

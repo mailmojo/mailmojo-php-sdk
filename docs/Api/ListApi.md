@@ -4,6 +4,7 @@ All URIs are relative to *https://api.mailmojo.no*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createList**](ListApi.md#createList) | **POST** /v1/lists/ | Create an email list.
 [**createSegment**](ListApi.md#createSegment) | **POST** /v1/lists/{list_id}/segments/ | Create a segment in the email list.
 [**getListById**](ListApi.md#getListById) | **GET** /v1/lists/{list_id}/ | Retrieve an email list.
 [**getLists**](ListApi.md#getLists) | **GET** /v1/lists/ | Retrieve all email lists.
@@ -15,6 +16,57 @@ Method | HTTP request | Description
 [**unsubscribeContactOnListByEmail**](ListApi.md#unsubscribeContactOnListByEmail) | **DELETE** /v1/lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact.
 [**updateList**](ListApi.md#updateList) | **PATCH** /v1/lists/{list_id}/ | Update an email list partially.
 
+
+# **createList**
+> \MailMojo\MailMojo\Model\ModelList createList($list)
+
+Create an email list.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\ListApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list = new \MailMojo\MailMojo\Model\ModelList(); // \MailMojo\MailMojo\Model\ModelList | 
+
+try {
+    $result = $apiInstance->createList($list);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ListApi->createList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list** | [**\MailMojo\MailMojo\Model\ModelList**](../Model/ModelList.md)|  |
+
+### Return type
+
+[**\MailMojo\MailMojo\Model\ModelList**](../Model/ModelList.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSegment**
 > \MailMojo\MailMojo\Model\Segment createSegment($list_id, $segment)
