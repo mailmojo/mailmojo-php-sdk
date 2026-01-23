@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **config** | **object** |  | 
 **confirmation_html** | **string** |  | 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**domain_id** | **int** |  | [optional] 
 **editor_confirmation_html** | **string** |  | [optional] 
 **editor_html** | **string** |  | [optional] 
 **expired_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

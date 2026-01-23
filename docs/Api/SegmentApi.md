@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **createSegment**
-> \MailMojo\MailMojo\Model\Segment createSegment($list_id, $segment)
+> \MailMojo\Model\Segment createSegment($list_id, $segment)
 
 Create a segment in the email list.
 
@@ -27,7 +27,7 @@ $apiInstance = new MailMojo\Api\SegmentApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to create a segment in.
-$segment = new \MailMojo\MailMojo\Model\SegmentCreation(); // \MailMojo\MailMojo\Model\SegmentCreation | 
+$segment = new \MailMojo\Model\SegmentCreation(); // \MailMojo\Model\SegmentCreation | 
 
 try {
     $result = $apiInstance->createSegment($list_id, $segment);
@@ -43,11 +43,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to create a segment in. |
- **segment** | [**\MailMojo\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
+ **segment** | [**\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Segment**](../Model/Segment.md)
+[**\MailMojo\Model\Segment**](../Model/Segment.md)
 
 ### Authorization
 

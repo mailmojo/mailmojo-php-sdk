@@ -26,7 +26,7 @@ $apiInstance = new MailMojo\Api\EmbedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$embed = new \MailMojo\MailMojo\Model\Embed(); // \MailMojo\MailMojo\Model\Embed | 
+$embed = new \MailMojo\Model\Embed(); // \MailMojo\Model\Embed | 
 
 try {
     $result = $apiInstance->createEmbedSession($embed);
@@ -41,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **embed** | [**\MailMojo\MailMojo\Model\Embed**](../Model/Embed.md)|  |
+ **embed** | [**\MailMojo\Model\Embed**](../Model/Embed.md)|  |
 
 ### Return type
 

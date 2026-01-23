@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **getPageById**
-> \MailMojo\MailMojo\Model\Page getPageById($id)
+> \MailMojo\Model\Page getPageById($id)
 
 Retrieve a landing page.
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Page**](../Model/Page.md)
+[**\MailMojo\Model\Page**](../Model/Page.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPages**
-> \MailMojo\MailMojo\Model\Page[] getPages()
+> \MailMojo\Model\Page[] getPages()
 
 Retrieve all landing pages.
 
@@ -95,7 +95,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Page[]**](../Model/Page.md)
+[**\MailMojo\Model\Page[]**](../Model/Page.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **trackPageView**
-> \MailMojo\MailMojo\Model\TrackPageView trackPageView($id, $view)
+> \MailMojo\Model\TrackPageView trackPageView($id, $view)
 
 Track a view of a landing page.
 
@@ -128,7 +128,7 @@ $apiInstance = new MailMojo\Api\PageApi(
     $config
 );
 $id = 56; // int | ID of the page to track view of.
-$view = new \MailMojo\MailMojo\Model\TrackPageView(); // \MailMojo\MailMojo\Model\TrackPageView | 
+$view = new \MailMojo\Model\TrackPageView(); // \MailMojo\Model\TrackPageView | 
 
 try {
     $result = $apiInstance->trackPageView($id, $view);
@@ -144,11 +144,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of the page to track view of. |
- **view** | [**\MailMojo\MailMojo\Model\TrackPageView**](../Model/TrackPageView.md)|  |
+ **view** | [**\MailMojo\Model\TrackPageView**](../Model/TrackPageView.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\TrackPageView**](../Model/TrackPageView.md)
+[**\MailMojo\Model\TrackPageView**](../Model/TrackPageView.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePage**
-> \MailMojo\MailMojo\Model\Page updatePage($id, $page)
+> \MailMojo\Model\Page updatePage($id, $page)
 
 Update a landing page partially.
 
@@ -181,7 +181,7 @@ $apiInstance = new MailMojo\Api\PageApi(
     $config
 );
 $id = 56; // int | ID of the landing page to update.
-$page = new \MailMojo\MailMojo\Model\Page(); // \MailMojo\MailMojo\Model\Page | 
+$page = new \MailMojo\Model\Page(); // \MailMojo\Model\Page | 
 
 try {
     $result = $apiInstance->updatePage($id, $page);
@@ -197,11 +197,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of the landing page to update. |
- **page** | [**\MailMojo\MailMojo\Model\Page**](../Model/Page.md)|  | [optional]
+ **page** | [**\MailMojo\Model\Page**](../Model/Page.md)|  | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Page**](../Model/Page.md)
+[**\MailMojo\Model\Page**](../Model/Page.md)
 
 ### Authorization
 

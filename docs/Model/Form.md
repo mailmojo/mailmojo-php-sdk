@@ -15,9 +15,12 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **lid** | **int** |  | 
 **name** | **string** |  | 
+**public_url** | **string** |  | [optional] 
 **published_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**snippet** | **string** |  | [optional] 
 **styles** | **string** |  | [optional] 
 **template_id** | **int** |  | [optional] 
+**trigger** | [**\MailMojo\Model\Trigger[]**](Trigger.md) |  | [optional] 
 **type** | **string** |  | 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

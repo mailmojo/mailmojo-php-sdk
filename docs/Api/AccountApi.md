@@ -6,13 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAccount**](AccountApi.md#createAccount) | **POST** /v1/accounts/ | Create an account.
 [**getAccountByUsername**](AccountApi.md#getAccountByUsername) | **GET** /v1/accounts/{username}/ | Retrieve account details.
-[**getDomain**](AccountApi.md#getDomain) | **GET** /v1/domains/{domain_id}/ | Retrieve domain details and authentication status.
-[**getDomains**](AccountApi.md#getDomains) | **GET** /v1/domains/ | Retrieve a list of all domains and their status.
 [**updateAccount**](AccountApi.md#updateAccount) | **POST** /v1/accounts/{username}/ | Update account details.
 
 
 # **createAccount**
-> \MailMojo\MailMojo\Model\User createAccount($user)
+> \MailMojo\Model\User createAccount($user)
 
 Create an account.
 
@@ -30,7 +28,7 @@ $apiInstance = new MailMojo\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user = new \MailMojo\MailMojo\Model\UserCreation(); // \MailMojo\MailMojo\Model\UserCreation | 
+$user = new \MailMojo\Model\UserCreation(); // \MailMojo\Model\UserCreation | 
 
 try {
     $result = $apiInstance->createAccount($user);
@@ -45,11 +43,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**\MailMojo\MailMojo\Model\UserCreation**](../Model/UserCreation.md)|  |
+ **user** | [**\MailMojo\Model\UserCreation**](../Model/UserCreation.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\User**](../Model/User.md)
+[**\MailMojo\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -63,7 +61,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountByUsername**
-> \MailMojo\MailMojo\Model\User getAccountByUsername($username)
+> \MailMojo\Model\User getAccountByUsername($username)
 
 Retrieve account details.
 
@@ -102,105 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\User**](../Model/User.md)
-
-### Authorization
-
-[mailmojo_auth](../../README.md#mailmojo_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getDomain**
-> \MailMojo\MailMojo\Model\Domain getDomain($domain_id)
-
-Retrieve domain details and authentication status.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: mailmojo_auth
-$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new MailMojo\Api\AccountApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$domain_id = new \stdClass; // object | 
-
-try {
-    $result = $apiInstance->getDomain($domain_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountApi->getDomain: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **domain_id** | [**object**](../Model/.md)|  |
-
-### Return type
-
-[**\MailMojo\MailMojo\Model\Domain**](../Model/Domain.md)
-
-### Authorization
-
-[mailmojo_auth](../../README.md#mailmojo_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getDomains**
-> object[] getDomains()
-
-Retrieve a list of all domains and their status.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: mailmojo_auth
-$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new MailMojo\Api\AccountApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-
-try {
-    $result = $apiInstance->getDomains();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountApi->getDomains: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**object[]**
+[**\MailMojo\Model\User**](../Model/User.md)
 
 ### Authorization
 
@@ -214,7 +114,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccount**
-> \MailMojo\MailMojo\Model\User updateAccount($username)
+> \MailMojo\Model\User updateAccount($username)
 
 Update account details.
 
@@ -251,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\User**](../Model/User.md)
+[**\MailMojo\Model\User**](../Model/User.md)
 
 ### Authorization
 

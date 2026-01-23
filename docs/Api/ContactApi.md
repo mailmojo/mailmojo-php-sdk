@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getContactByEmail**
-> \MailMojo\MailMojo\Model\Contact getContactByEmail($email)
+> \MailMojo\Model\Contact getContactByEmail($email)
 
 Retrieve a contact in any list by email.
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Contact**](../Model/Contact.md)
+[**\MailMojo\Model\Contact**](../Model/Contact.md)
 
 ### Authorization
 
@@ -67,11 +67,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContacts**
-> \MailMojo\MailMojo\Model\Contact[] getContacts()
+> \MailMojo\Model\Contact[] getContacts($search, $limit, $offset)
 
 Retrieve all contacts across every list.
 
-This endpoint currently returns all contacts in your account *without any pagination* and should be considered EXPERIMENTAL. The response schema will change without any warning in the near future to account for pagination.
+This endpoint returns contacts across every list on the account. Use limit and offset query parameters to paginate large datasets.
 
 ### Example
 ```php
@@ -87,9 +87,12 @@ $apiInstance = new MailMojo\Api\ContactApi(
     new GuzzleHttp\Client(),
     $config
 );
+$search = "search_example"; // string | Filter by partial email address or name.
+$limit = 56; // int | Limits the result to given count.
+$offset = 56; // int | Skips the given count of contacts before returning results.
 
 try {
-    $result = $apiInstance->getContacts();
+    $result = $apiInstance->getContacts($search, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->getContacts: ', $e->getMessage(), PHP_EOL;
@@ -98,11 +101,16 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search** | **string**| Filter by partial email address or name. | [optional]
+ **limit** | **int**| Limits the result to given count. | [optional]
+ **offset** | **int**| Skips the given count of contacts before returning results. | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Contact[]**](../Model/Contact.md)
+[**\MailMojo\Model\Contact[]**](../Model/Contact.md)
 
 ### Authorization
 
@@ -116,7 +124,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getHistoricalContactStats**
-> \MailMojo\MailMojo\Model\HistoricalContactsStats[] getHistoricalContactStats($start_date)
+> \MailMojo\Model\HistoricalContactsStats[] getHistoricalContactStats($start_date)
 
 Retrieve historical stats over contacts across every list.
 
@@ -153,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\HistoricalContactsStats[]**](../Model/HistoricalContactsStats.md)
+[**\MailMojo\Model\HistoricalContactsStats[]**](../Model/HistoricalContactsStats.md)
 
 ### Authorization
 
@@ -167,7 +175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubscriberOnListByEmail**
-> \MailMojo\MailMojo\Model\Subscriber getSubscriberOnListByEmail($list_id, $email)
+> \MailMojo\Model\Subscriber getSubscriberOnListByEmail($list_id, $email)
 
 Retrieve a subscriber.
 
@@ -206,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Subscriber**](../Model/Subscriber.md)
+[**\MailMojo\Model\Subscriber**](../Model/Subscriber.md)
 
 ### Authorization
 
@@ -220,7 +228,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubscribersOnList**
-> \MailMojo\MailMojo\Model\Subscriber[] getSubscribersOnList($list_id, $limit)
+> \MailMojo\Model\Subscriber[] getSubscribersOnList($list_id, $search, $limit, $offset)
 
 Retrieve subscribers on a list.
 
@@ -239,10 +247,12 @@ $apiInstance = new MailMojo\Api\ContactApi(
     $config
 );
 $list_id = 56; // int | ID of the email list.
+$search = "search_example"; // string | Filter by partial email address or name.
 $limit = 56; // int | Limits the result to given count.
+$offset = 56; // int | Skips the given count of contacts before returning results.
 
 try {
-    $result = $apiInstance->getSubscribersOnList($list_id, $limit);
+    $result = $apiInstance->getSubscribersOnList($list_id, $search, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->getSubscribersOnList: ', $e->getMessage(), PHP_EOL;
@@ -255,11 +265,13 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list. |
+ **search** | **string**| Filter by partial email address or name. | [optional]
  **limit** | **int**| Limits the result to given count. | [optional]
+ **offset** | **int**| Skips the given count of contacts before returning results. | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Subscriber[]**](../Model/Subscriber.md)
+[**\MailMojo\Model\Subscriber[]**](../Model/Subscriber.md)
 
 ### Authorization
 
@@ -273,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUnsubscribedOnList**
-> \MailMojo\MailMojo\Model\Contact[] getUnsubscribedOnList($list_id, $limit)
+> \MailMojo\Model\Contact[] getUnsubscribedOnList($list_id, $limit, $offset)
 
 Retrieve unsubscribed contacts on a list.
 
@@ -293,9 +305,10 @@ $apiInstance = new MailMojo\Api\ContactApi(
 );
 $list_id = 56; // int | ID of the email list.
 $limit = 56; // int | Limits the result to given count.
+$offset = 56; // int | Skips the given count of contacts before returning results.
 
 try {
-    $result = $apiInstance->getUnsubscribedOnList($list_id, $limit);
+    $result = $apiInstance->getUnsubscribedOnList($list_id, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContactApi->getUnsubscribedOnList: ', $e->getMessage(), PHP_EOL;
@@ -309,10 +322,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list. |
  **limit** | **int**| Limits the result to given count. | [optional]
+ **offset** | **int**| Skips the given count of contacts before returning results. | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Contact[]**](../Model/Contact.md)
+[**\MailMojo\Model\Contact[]**](../Model/Contact.md)
 
 ### Authorization
 
@@ -326,7 +340,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **subscribeContactToList**
-> \MailMojo\MailMojo\Model\Contact subscribeContactToList($list_id, $contact)
+> \MailMojo\Model\Contact subscribeContactToList($list_id, $contact)
 
 Subscribe a contact to the email list.
 
@@ -345,7 +359,7 @@ $apiInstance = new MailMojo\Api\ContactApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to subscribe to.
-$contact = new \MailMojo\MailMojo\Model\Subscriber(); // \MailMojo\MailMojo\Model\Subscriber | 
+$contact = new \MailMojo\Model\Subscriber(); // \MailMojo\Model\Subscriber | 
 
 try {
     $result = $apiInstance->subscribeContactToList($list_id, $contact);
@@ -361,11 +375,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **list_id** | **int**| ID of the email list to subscribe to. |
- **contact** | [**\MailMojo\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  |
+ **contact** | [**\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Contact**](../Model/Contact.md)
+[**\MailMojo\Model\Contact**](../Model/Contact.md)
 
 ### Authorization
 
@@ -379,7 +393,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **unsubscribeContactOnListByEmail**
-> \MailMojo\MailMojo\Model\Contact unsubscribeContactOnListByEmail($list_id, $email)
+> \MailMojo\Model\Contact unsubscribeContactOnListByEmail($list_id, $email)
 
 Unsubscribe a contact.
 
@@ -418,7 +432,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Contact**](../Model/Contact.md)
+[**\MailMojo\Model\Contact**](../Model/Contact.md)
 
 ### Authorization
 
@@ -432,7 +446,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContact**
-> \MailMojo\MailMojo\Model\BaseContact updateContact($email, $contact)
+> \MailMojo\Model\BaseContact updateContact($email, $contact)
 
 Update details about a contact.
 
@@ -451,7 +465,7 @@ $apiInstance = new MailMojo\Api\ContactApi(
     $config
 );
 $email = "email_example"; // string | Email address of contact to update.
-$contact = new \MailMojo\MailMojo\Model\BaseContact(); // \MailMojo\MailMojo\Model\BaseContact | 
+$contact = new \MailMojo\Model\BaseContact(); // \MailMojo\Model\BaseContact | 
 
 try {
     $result = $apiInstance->updateContact($email, $contact);
@@ -467,11 +481,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **string**| Email address of contact to update. |
- **contact** | [**\MailMojo\MailMojo\Model\BaseContact**](../Model/BaseContact.md)|  | [optional]
+ **contact** | [**\MailMojo\Model\BaseContact**](../Model/BaseContact.md)|  | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\BaseContact**](../Model/BaseContact.md)
+[**\MailMojo\Model\BaseContact**](../Model/BaseContact.md)
 
 ### Authorization
 

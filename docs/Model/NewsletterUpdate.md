@@ -3,13 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**html** | **object** |  | [optional] 
+**html** | **string** |  | [optional] 
 **html_url** | **string** |  | [optional] 
 **list_id** | **int** |  | 
 **preview_text** | **string** |  | [optional] 
 **segment_ids** | **object[]** |  | [optional] 
 **subject** | **string** |  | [optional] 
 **template_id** | **int** |  | [optional] 
+**title** | **string** |  | [optional] 
 **utm_campaign** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

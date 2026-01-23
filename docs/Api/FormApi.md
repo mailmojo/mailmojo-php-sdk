@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **formAddSubscriber**
-> \MailMojo\MailMojo\Model\FormConversion formAddSubscriber($id, $subscriber)
+> \MailMojo\Model\FormConversion formAddSubscriber($id, $subscriber)
 
 Add a subscriber through a form and track the conversion.
 
@@ -31,7 +31,7 @@ $apiInstance = new MailMojo\Api\FormApi(
     $config
 );
 $id = 56; // int | ID of the form.
-$subscriber = new \MailMojo\MailMojo\Model\AddFormSubscriber(); // \MailMojo\MailMojo\Model\AddFormSubscriber | 
+$subscriber = new \MailMojo\Model\AddFormSubscriber(); // \MailMojo\Model\AddFormSubscriber | 
 
 try {
     $result = $apiInstance->formAddSubscriber($id, $subscriber);
@@ -47,11 +47,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of the form. |
- **subscriber** | [**\MailMojo\MailMojo\Model\AddFormSubscriber**](../Model/AddFormSubscriber.md)|  |
+ **subscriber** | [**\MailMojo\Model\AddFormSubscriber**](../Model/AddFormSubscriber.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\FormConversion**](../Model/FormConversion.md)
+[**\MailMojo\Model\FormConversion**](../Model/FormConversion.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFormById**
-> \MailMojo\MailMojo\Model\Form getFormById($id)
+> \MailMojo\Model\Form getFormById($id)
 
 Retrieve a form.
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Form**](../Model/Form.md)
+[**\MailMojo\Model\Form**](../Model/Form.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getForms**
-> \MailMojo\MailMojo\Model\Form[] getForms($is_published)
+> \MailMojo\Model\Form[] getForms($is_published)
 
 Retrieve all forms.
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Form[]**](../Model/Form.md)
+[**\MailMojo\Model\Form[]**](../Model/Form.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **trackFormView**
-> \MailMojo\MailMojo\Model\TrackFormView trackFormView($id, $view)
+> \MailMojo\Model\TrackFormView trackFormView($id, $view)
 
 Track a view of a form.
 
@@ -186,7 +186,7 @@ $apiInstance = new MailMojo\Api\FormApi(
     $config
 );
 $id = 56; // int | ID of the form to track view of.
-$view = new \MailMojo\MailMojo\Model\TrackFormView(); // \MailMojo\MailMojo\Model\TrackFormView | 
+$view = new \MailMojo\Model\TrackFormView(); // \MailMojo\Model\TrackFormView | 
 
 try {
     $result = $apiInstance->trackFormView($id, $view);
@@ -202,11 +202,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of the form to track view of. |
- **view** | [**\MailMojo\MailMojo\Model\TrackFormView**](../Model/TrackFormView.md)|  |
+ **view** | [**\MailMojo\Model\TrackFormView**](../Model/TrackFormView.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\TrackFormView**](../Model/TrackFormView.md)
+[**\MailMojo\Model\TrackFormView**](../Model/TrackFormView.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateForm**
-> \MailMojo\MailMojo\Model\Form updateForm($id, $form)
+> \MailMojo\Model\Form updateForm($id, $form)
 
 Update a form partially.
 
@@ -239,7 +239,7 @@ $apiInstance = new MailMojo\Api\FormApi(
     $config
 );
 $id = 56; // int | ID of the form to update.
-$form = new \MailMojo\MailMojo\Model\Form(); // \MailMojo\MailMojo\Model\Form | 
+$form = new \MailMojo\Model\Form(); // \MailMojo\Model\Form | 
 
 try {
     $result = $apiInstance->updateForm($id, $form);
@@ -255,11 +255,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of the form to update. |
- **form** | [**\MailMojo\MailMojo\Model\Form**](../Model/Form.md)|  | [optional]
+ **form** | [**\MailMojo\Model\Form**](../Model/Form.md)|  | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\Form**](../Model/Form.md)
+[**\MailMojo\Model\Form**](../Model/Form.md)
 
 ### Authorization
 

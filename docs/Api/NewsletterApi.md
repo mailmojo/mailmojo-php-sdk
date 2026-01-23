@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **cancelNewsletter**
-> \MailMojo\MailMojo\Model\NewsletterDetail cancelNewsletter($newsletter_id)
+> \MailMojo\Model\NewsletterDetail cancelNewsletter($newsletter_id)
 
 Cancel a newsletter.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
+[**\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createNewsletter**
-> \MailMojo\MailMojo\Model\NewsletterDetail createNewsletter($newsletter)
+> \MailMojo\Model\NewsletterDetail createNewsletter($newsletter)
 
 Create a newsletter draft.
 
@@ -83,7 +83,7 @@ $apiInstance = new MailMojo\Api\NewsletterApi(
     new GuzzleHttp\Client(),
     $config
 );
-$newsletter = new \MailMojo\MailMojo\Model\NewsletterCreation(); // \MailMojo\MailMojo\Model\NewsletterCreation | 
+$newsletter = new \MailMojo\Model\NewsletterCreation(); // \MailMojo\Model\NewsletterCreation | 
 
 try {
     $result = $apiInstance->createNewsletter($newsletter);
@@ -98,11 +98,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newsletter** | [**\MailMojo\MailMojo\Model\NewsletterCreation**](../Model/NewsletterCreation.md)|  |
+ **newsletter** | [**\MailMojo\Model\NewsletterCreation**](../Model/NewsletterCreation.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
+[**\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getNewsletterById**
-> \MailMojo\MailMojo\Model\NewsletterDetail getNewsletterById($newsletter_id)
+> \MailMojo\Model\NewsletterDetail getNewsletterById($newsletter_id)
 
 Retrieve a newsletter by id.
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
+[**\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getNewsletters**
-> \MailMojo\MailMojo\Model\InlineResponse200 getNewsletters($page, $per_page, $type)
+> \MailMojo\Model\InlineResponse200 getNewsletters($page, $per_page, $type)
 
 Retrieve all newsletters.
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\MailMojo\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendNewsletter**
-> \MailMojo\MailMojo\Model\NewsletterDetail sendNewsletter($newsletter_id, $config)
+> \MailMojo\Model\NewsletterDetail sendNewsletter($newsletter_id, $config)
 
 Send a newsletter.
 
@@ -241,7 +241,7 @@ $apiInstance = new MailMojo\Api\NewsletterApi(
     $config
 );
 $newsletter_id = 56; // int | ID of the newsletter to retrieve.
-$config = new \MailMojo\MailMojo\Model\NewsletterSend(); // \MailMojo\MailMojo\Model\NewsletterSend | 
+$config = new \MailMojo\Model\NewsletterSend(); // \MailMojo\Model\NewsletterSend | 
 
 try {
     $result = $apiInstance->sendNewsletter($newsletter_id, $config);
@@ -257,11 +257,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **newsletter_id** | **int**| ID of the newsletter to retrieve. |
- **config** | [**\MailMojo\MailMojo\Model\NewsletterSend**](../Model/NewsletterSend.md)|  | [optional]
+ **config** | [**\MailMojo\Model\NewsletterSend**](../Model/NewsletterSend.md)|  | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
+[**\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ $apiInstance = new MailMojo\Api\NewsletterApi(
     $config
 );
 $newsletter_id = 56; // int | ID of the newsletter to retrieve.
-$config = new \MailMojo\MailMojo\Model\NewsletterSendTest(); // \MailMojo\MailMojo\Model\NewsletterSendTest | 
+$config = new \MailMojo\Model\NewsletterSendTest(); // \MailMojo\Model\NewsletterSendTest | 
 
 try {
     $apiInstance->testNewsletter($newsletter_id, $config);
@@ -309,7 +309,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **newsletter_id** | **int**| ID of the newsletter to retrieve. |
- **config** | [**\MailMojo\MailMojo\Model\NewsletterSendTest**](../Model/NewsletterSendTest.md)|  |
+ **config** | [**\MailMojo\Model\NewsletterSendTest**](../Model/NewsletterSendTest.md)|  |
 
 ### Return type
 
@@ -327,7 +327,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateNewsletter**
-> \MailMojo\MailMojo\Model\NewsletterDetail updateNewsletter($id, $newsletter)
+> \MailMojo\Model\NewsletterDetail updateNewsletter($newsletter_id, $newsletter)
 
 Update a newsletter draft partially.
 
@@ -345,11 +345,11 @@ $apiInstance = new MailMojo\Api\NewsletterApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int | ID of the newsletter to update.
-$newsletter = new \MailMojo\MailMojo\Model\NewsletterUpdate(); // \MailMojo\MailMojo\Model\NewsletterUpdate | 
+$newsletter_id = 56; // int | ID of the newsletter to update.
+$newsletter = new \MailMojo\Model\NewsletterUpdate(); // \MailMojo\Model\NewsletterUpdate | 
 
 try {
-    $result = $apiInstance->updateNewsletter($id, $newsletter);
+    $result = $apiInstance->updateNewsletter($newsletter_id, $newsletter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NewsletterApi->updateNewsletter: ', $e->getMessage(), PHP_EOL;
@@ -361,12 +361,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of the newsletter to update. |
- **newsletter** | [**\MailMojo\MailMojo\Model\NewsletterUpdate**](../Model/NewsletterUpdate.md)|  | [optional]
+ **newsletter_id** | **int**| ID of the newsletter to update. |
+ **newsletter** | [**\MailMojo\Model\NewsletterUpdate**](../Model/NewsletterUpdate.md)|  | [optional]
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
+[**\MailMojo\Model\NewsletterDetail**](../Model/NewsletterDetail.md)
 
 ### Authorization
 

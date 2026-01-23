@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **createWebhook**
-> \MailMojo\MailMojo\Model\WebhookCreation createWebhook($webhook)
+> \MailMojo\Model\Webhook createWebhook($webhook)
 
 Create a webhook.
 
@@ -27,7 +27,7 @@ $apiInstance = new MailMojo\Api\WebhookApi(
     new GuzzleHttp\Client(),
     $config
 );
-$webhook = new \MailMojo\MailMojo\Model\WebhookCreation(); // \MailMojo\MailMojo\Model\WebhookCreation | 
+$webhook = new \MailMojo\Model\Webhook(); // \MailMojo\Model\Webhook | 
 
 try {
     $result = $apiInstance->createWebhook($webhook);
@@ -42,11 +42,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | [**\MailMojo\MailMojo\Model\WebhookCreation**](../Model/WebhookCreation.md)|  |
+ **webhook** | [**\MailMojo\Model\Webhook**](../Model/Webhook.md)|  |
 
 ### Return type
 
-[**\MailMojo\MailMojo\Model\WebhookCreation**](../Model/WebhookCreation.md)
+[**\MailMojo\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 

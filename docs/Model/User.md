@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **name** | **string** |  | 
 **num_contacts** | **int** |  | [optional] 
 **partner** | **string** |  | [optional] 
-**plan** | **string** |  | [optional] 
 **trial_expires** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **username** | **string** |  | [optional] 
 **zip_code** | **string** |  | [optional] 

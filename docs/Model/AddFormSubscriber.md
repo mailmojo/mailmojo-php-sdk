@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contact** | [**\MailMojo\MailMojo\Model\BaseContact**](BaseContact.md) |  | 
+**contact** | [**\MailMojo\Model\FormSubscriberContact**](FormSubscriberContact.md) |  | 
 **page_view_id** | **int** |  | [optional] 
 **view_id** | **int** |  | 
 

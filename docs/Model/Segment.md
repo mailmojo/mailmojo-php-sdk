@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **id** | **int** |  | [optional] 
-**label** | **string** |  | [optional] 
 **name** | **string** |  | 
 **num_contacts** | **int** |  | [optional] 
 **type** | **object** |  | [optional] 

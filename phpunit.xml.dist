@@ -14,8 +14,8 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./MailMojo//Api</directory>
-            <directory suffix=".php">./MailMojo//Model</directory>
+            <directory suffix=".php">./MailMojo/Api</directory>
+            <directory suffix=".php">./MailMojo/Model</directory>
         </whitelist>
     </filter>
 </phpunit>

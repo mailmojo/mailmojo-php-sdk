@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**api_client_id** | **string** |  | [optional] 
 **callback_url** | **string** |  | 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **id** | **int** |  | [optional] 
