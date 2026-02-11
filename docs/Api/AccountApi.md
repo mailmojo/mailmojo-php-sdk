@@ -5,8 +5,14 @@ All URIs are relative to *https://api.mailmojo.no*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAccount**](AccountApi.md#createAccount) | **POST** /v1/accounts/ | Create an account.
+[**createAccountField**](AccountApi.md#createAccountField) | **POST** /v1/accounts/fields/ | Create a custom field on the account.
+[**deleteAccountField**](AccountApi.md#deleteAccountField) | **DELETE** /v1/accounts/fields/{field_id}/ | Delete a custom field on the account.
 [**getAccountByUsername**](AccountApi.md#getAccountByUsername) | **GET** /v1/accounts/{username}/ | Retrieve account details.
+[**getAccountFields**](AccountApi.md#getAccountFields) | **GET** /v1/accounts/fields/ | Returns info about all available fields on the account.
+[**getAccountIntegrations**](AccountApi.md#getAccountIntegrations) | **GET** /v1/accounts/integrations/ | Retrieve installed integrations for an account.
 [**updateAccount**](AccountApi.md#updateAccount) | **POST** /v1/accounts/{username}/ | Update account details.
+[**updateAccountField**](AccountApi.md#updateAccountField) | **PATCH** /v1/accounts/fields/{field_id}/ | Update a custom field on the account.
+[**updateAccountIntegration**](AccountApi.md#updateAccountIntegration) | **PATCH** /v1/accounts/integrations/{integration_id}/ | Update installed integration settings.
 
 
 # **createAccount**
@@ -48,6 +54,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\MailMojo\Model\User**](../Model/User.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createAccountField**
+> \MailMojo\Model\Field createAccountField($field)
+
+Create a custom field on the account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$field = new \MailMojo\Model\Field(); // \MailMojo\Model\Field | 
+
+try {
+    $result = $apiInstance->createAccountField($field);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->createAccountField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **field** | [**\MailMojo\Model\Field**](../Model/Field.md)|  |
+
+### Return type
+
+[**\MailMojo\Model\Field**](../Model/Field.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteAccountField**
+> deleteAccountField($field_id)
+
+Delete a custom field on the account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$field_id = "field_id_example"; // string | ID of the custom field.
+
+try {
+    $apiInstance->deleteAccountField($field_id);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->deleteAccountField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **field_id** | **string**| ID of the custom field. |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -113,6 +220,100 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getAccountFields**
+> \MailMojo\Model\Field getAccountFields()
+
+Returns info about all available fields on the account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getAccountFields();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->getAccountFields: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MailMojo\Model\Field**](../Model/Field.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAccountIntegrations**
+> \MailMojo\Model\InstalledIntegration getAccountIntegrations()
+
+Retrieve installed integrations for an account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->getAccountIntegrations();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->getAccountIntegrations: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MailMojo\Model\InstalledIntegration**](../Model/InstalledIntegration.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **updateAccount**
 > \MailMojo\Model\User updateAccount($username)
 
@@ -152,6 +353,111 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\MailMojo\Model\User**](../Model/User.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateAccountField**
+> \MailMojo\Model\Field updateAccountField($field_id, $field)
+
+Update a custom field on the account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$field_id = "field_id_example"; // string | ID of the custom field.
+$field = new \MailMojo\Model\Field(); // \MailMojo\Model\Field | 
+
+try {
+    $result = $apiInstance->updateAccountField($field_id, $field);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->updateAccountField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **field_id** | **string**| ID of the custom field. |
+ **field** | [**\MailMojo\Model\Field**](../Model/Field.md)|  |
+
+### Return type
+
+[**\MailMojo\Model\Field**](../Model/Field.md)
+
+### Authorization
+
+[mailmojo_auth](../../README.md#mailmojo_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateAccountIntegration**
+> updateAccountIntegration($integration_id, $settings)
+
+Update installed integration settings.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: mailmojo_auth
+$config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new MailMojo\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$integration_id = "integration_id_example"; // string | 
+$settings = new \stdClass; // object | 
+
+try {
+    $apiInstance->updateAccountIntegration($integration_id, $settings);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->updateAccountIntegration: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **string**|  |
+ **settings** | **object**|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
