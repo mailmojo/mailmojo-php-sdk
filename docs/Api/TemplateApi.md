@@ -1,25 +1,33 @@
 # MailMojo\TemplateApi
 
-All URIs are relative to *https://api.mailmojo.no*
-
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAvailableWebComponents**](TemplateApi.md#getAvailableWebComponents) | **GET** /v1/templates/web_components/ | Retrieve all web components.
-[**getTemplates**](TemplateApi.md#getTemplates) | **GET** /v1/templates/ | Retrieve all templates.
 
 
-# **getAvailableWebComponents**
-> \MailMojo\Model\WebComponent[] getAvailableWebComponents()
+All URIs are relative to http://api.mailmojo.no, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getAvailableWebComponents()**](TemplateApi.md#getAvailableWebComponents) | **GET** /v1/templates/web_components/ | Retrieve all web components. |
+| [**getTemplates()**](TemplateApi.md#getTemplates) | **GET** /v1/templates/ | Retrieve all templates. |
+
+
+## `getAvailableWebComponents()`
+
+```php
+getAvailableWebComponents(): \MailMojo\Model\WebComponent[]
+```
 
 Retrieve all web components.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\TemplateApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -34,10 +42,10 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TemplateApi->getAvailableWebComponents: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -50,23 +58,31 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getTemplates**
-> \MailMojo\Model\Template[] getTemplates()
+## `getTemplates()`
+
+```php
+getTemplates(): \MailMojo\Model\Template[]
+```
 
 Retrieve all templates.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\TemplateApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -81,10 +97,10 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TemplateApi->getTemplates: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -97,8 +113,9 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

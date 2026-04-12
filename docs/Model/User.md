@@ -1,22 +1,21 @@
 # User
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **string** |  | [optional] 
-**city** | **string** |  | [optional] 
-**contact_email** | **string** |  | 
-**contact_name** | **string** |  | [optional] 
-**created** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**logo** | **object** |  | [optional] 
-**logo_url** | **string** |  | [optional] 
-**name** | **string** |  | 
-**num_contacts** | **int** |  | [optional] 
-**partner** | **string** |  | [optional] 
-**trial_expires** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**username** | **string** |  | [optional] 
-**zip_code** | **string** |  | [optional] 
+**address** | **string** |  | [optional]
+**city** | **string** |  | [optional]
+**contact_email** | **string** |  |
+**contact_name** | **string** |  | [optional]
+**created** | **\DateTime** |  | [optional] [readonly]
+**logo** | **object** |  | [optional]
+**logo_url** | **string** |  | [optional]
+**name** | **string** |  |
+**num_contacts** | **int** |  | [optional] [readonly]
+**partner** | **string** |  | [optional] [readonly]
+**trial_expires** | **\DateTime** |  | [optional] [readonly]
+**username** | **string** |  | [optional] [readonly]
+**zip_code** | **string** |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

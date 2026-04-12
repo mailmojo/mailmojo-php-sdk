@@ -1,27 +1,35 @@
 # MailMojo\PageApi
 
-All URIs are relative to *https://api.mailmojo.no*
-
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getPageById**](PageApi.md#getPageById) | **GET** /v1/pages/{id}/ | Retrieve a landing page.
-[**getPages**](PageApi.md#getPages) | **GET** /v1/pages/ | Retrieve all landing pages.
-[**trackPageView**](PageApi.md#trackPageView) | **PATCH** /v1/pages/{id}/track/view/ | Track a view of a landing page.
-[**updatePage**](PageApi.md#updatePage) | **PATCH** /v1/pages/{id}/ | Update a landing page partially.
 
 
-# **getPageById**
-> \MailMojo\Model\Page getPageById($id)
+All URIs are relative to http://api.mailmojo.no, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getPageById()**](PageApi.md#getPageById) | **GET** /v1/pages/{id}/ | Retrieve a landing page. |
+| [**getPages()**](PageApi.md#getPages) | **GET** /v1/pages/ | Retrieve all landing pages. |
+| [**trackPageView()**](PageApi.md#trackPageView) | **PATCH** /v1/pages/{id}/track/view/ | Track a view of a landing page. |
+| [**updatePage()**](PageApi.md#updatePage) | **PATCH** /v1/pages/{id}/ | Update a landing page partially. |
+
+
+## `getPageById()`
+
+```php
+getPageById($id): \MailMojo\Model\Page
+```
 
 Retrieve a landing page.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\PageApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -37,14 +45,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PageApi->getPageById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of the landing page to retrieve. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID of the landing page to retrieve. | |
 
 ### Return type
 
@@ -56,23 +63,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getPages**
-> \MailMojo\Model\Page[] getPages()
+## `getPages()`
+
+```php
+getPages(): \MailMojo\Model\Page[]
+```
 
 Retrieve all landing pages.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\PageApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -87,10 +102,10 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PageApi->getPages: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -103,23 +118,31 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **trackPageView**
-> \MailMojo\Model\TrackPageView trackPageView($id, $view)
+## `trackPageView()`
+
+```php
+trackPageView($id, $view): \MailMojo\Model\TrackPageView
+```
 
 Track a view of a landing page.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\PageApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -128,7 +151,7 @@ $apiInstance = new MailMojo\Api\PageApi(
     $config
 );
 $id = 56; // int | ID of the page to track view of.
-$view = new \MailMojo\Model\TrackPageView(); // \MailMojo\Model\TrackPageView | 
+$view = new \MailMojo\Model\TrackPageView(); // \MailMojo\Model\TrackPageView
 
 try {
     $result = $apiInstance->trackPageView($id, $view);
@@ -136,15 +159,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PageApi->trackPageView: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of the page to track view of. |
- **view** | [**\MailMojo\Model\TrackPageView**](../Model/TrackPageView.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID of the page to track view of. | |
+| **view** | [**\MailMojo\Model\TrackPageView**](../Model/TrackPageView.md)|  | |
 
 ### Return type
 
@@ -156,23 +178,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **updatePage**
-> \MailMojo\Model\Page updatePage($id, $page)
+## `updatePage()`
+
+```php
+updatePage($id, $page): \MailMojo\Model\Page
+```
 
 Update a landing page partially.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\PageApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -181,7 +211,7 @@ $apiInstance = new MailMojo\Api\PageApi(
     $config
 );
 $id = 56; // int | ID of the landing page to update.
-$page = new \MailMojo\Model\Page(); // \MailMojo\Model\Page | 
+$page = new \MailMojo\Model\Page(); // \MailMojo\Model\Page
 
 try {
     $result = $apiInstance->updatePage($id, $page);
@@ -189,15 +219,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PageApi->updatePage: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of the landing page to update. |
- **page** | [**\MailMojo\Model\Page**](../Model/Page.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID of the landing page to update. | |
+| **page** | [**\MailMojo\Model\Page**](../Model/Page.md)|  | [optional] |
 
 ### Return type
 
@@ -209,8 +238,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

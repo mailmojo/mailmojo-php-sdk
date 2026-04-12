@@ -1,14 +1,13 @@
 # Segment
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**id** | **int** |  | [optional] 
-**name** | **string** |  | 
-**num_contacts** | **int** |  | [optional] 
-**type** | **object** |  | [optional] 
+**created** | **\DateTime** |  | [optional] [readonly]
+**id** | **int** |  | [optional] [readonly]
+**name** | **string** |  |
+**num_contacts** | **int** |  | [optional] [readonly]
+**type** | **object** |  | [optional] [readonly]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

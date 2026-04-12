@@ -1,25 +1,33 @@
 # MailMojo\WebhookApi
 
-All URIs are relative to *https://api.mailmojo.no*
-
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createWebhook**](WebhookApi.md#createWebhook) | **POST** /v1/webhooks/ | Create a webhook.
-[**deleteWebhook**](WebhookApi.md#deleteWebhook) | **DELETE** /v1/webhooks/{id}/ | Delete a webhook.
 
 
-# **createWebhook**
-> \MailMojo\Model\Webhook createWebhook($webhook)
+All URIs are relative to http://api.mailmojo.no, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createWebhook()**](WebhookApi.md#createWebhook) | **POST** /v1/webhooks/ | Create a webhook. |
+| [**deleteWebhook()**](WebhookApi.md#deleteWebhook) | **DELETE** /v1/webhooks/{id}/ | Delete a webhook. |
+
+
+## `createWebhook()`
+
+```php
+createWebhook($webhook): \MailMojo\Model\Webhook
+```
 
 Create a webhook.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\WebhookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -27,7 +35,7 @@ $apiInstance = new MailMojo\Api\WebhookApi(
     new GuzzleHttp\Client(),
     $config
 );
-$webhook = new \MailMojo\Model\Webhook(); // \MailMojo\Model\Webhook | 
+$webhook = new \MailMojo\Model\Webhook(); // \MailMojo\Model\Webhook
 
 try {
     $result = $apiInstance->createWebhook($webhook);
@@ -35,14 +43,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->createWebhook: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook** | [**\MailMojo\Model\Webhook**](../Model/Webhook.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **webhook** | [**\MailMojo\Model\Webhook**](../Model/Webhook.md)|  | |
 
 ### Return type
 
@@ -54,23 +61,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteWebhook**
-> deleteWebhook($id)
+## `deleteWebhook()`
+
+```php
+deleteWebhook($id)
+```
 
 Delete a webhook.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\WebhookApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -85,14 +100,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->deleteWebhook: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of the webhook. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| ID of the webhook. | |
 
 ### Return type
 
@@ -104,8 +118,9 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

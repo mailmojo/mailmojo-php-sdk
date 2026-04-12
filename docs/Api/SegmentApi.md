@@ -1,24 +1,32 @@
 # MailMojo\SegmentApi
 
-All URIs are relative to *https://api.mailmojo.no*
-
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createSegment**](SegmentApi.md#createSegment) | **POST** /v1/lists/{list_id}/segments/ | Create a segment in the email list.
 
 
-# **createSegment**
-> \MailMojo\Model\Segment createSegment($list_id, $segment)
+All URIs are relative to http://api.mailmojo.no, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createSegment()**](SegmentApi.md#createSegment) | **POST** /v1/lists/{list_id}/segments/ | Create a segment in the email list. |
+
+
+## `createSegment()`
+
+```php
+createSegment($list_id, $segment): \MailMojo\Model\Segment
+```
 
 Create a segment in the email list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\SegmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -27,7 +35,7 @@ $apiInstance = new MailMojo\Api\SegmentApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to create a segment in.
-$segment = new \MailMojo\Model\SegmentCreation(); // \MailMojo\Model\SegmentCreation | 
+$segment = new \MailMojo\Model\SegmentCreation(); // \MailMojo\Model\SegmentCreation
 
 try {
     $result = $apiInstance->createSegment($list_id, $segment);
@@ -35,15 +43,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling SegmentApi->createSegment: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to create a segment in. |
- **segment** | [**\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to create a segment in. | |
+| **segment** | [**\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  | |
 
 ### Return type
 
@@ -55,8 +62,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

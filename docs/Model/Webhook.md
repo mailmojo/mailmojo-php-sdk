@@ -1,17 +1,16 @@
 # Webhook
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**api_client_id** | **string** |  | [optional] 
-**callback_url** | **string** |  | 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**id** | **int** |  | [optional] 
-**integration_id** | **string** |  | [optional] 
-**is_enabled** | **bool** |  | [optional] 
-**secret** | **string** |  | [optional] 
-**topic** | **string** |  | 
+**api_client_id** | **string** |  | [optional] [readonly]
+**callback_url** | **string** |  |
+**created_at** | **\DateTime** |  | [optional] [readonly]
+**id** | **int** |  | [optional] [readonly]
+**integration_id** | **string** |  | [optional] [readonly]
+**is_enabled** | **bool** |  | [optional]
+**secret** | **string** |  | [optional] [readonly]
+**topic** | **string** |  |
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

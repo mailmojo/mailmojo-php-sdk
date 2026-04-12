@@ -1,14 +1,13 @@
 # ContactList
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**added** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**email** | **string** |  | 
-**list_id** | **int** |  | 
-**status** | **string** |  | [optional] 
-**status_changed** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**added** | **\DateTime** |  | [optional]
+**email** | **string** |  |
+**list_id** | **int** |  |
+**status** | **string** |  | [optional]
+**status_changed** | **\DateTime** |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

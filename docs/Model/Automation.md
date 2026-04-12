@@ -1,18 +1,17 @@
 # Automation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**feeds** | **object** |  | [optional] 
-**frequency** | **string** |  | [optional] 
-**from_email** | **string** |  | 
-**from_name** | **string** |  | 
-**id** | **int** |  | [optional] 
-**name** | **string** |  | 
-**required_feeds** | **string[]** |  | [optional] 
-**type** | **string** |  | [optional] 
-**utm_campaign** | **string** |  | [optional] 
+**feeds** | **object** |  | [optional]
+**frequency** | **string** |  | [optional]
+**from_email** | **string** |  |
+**from_name** | **string** |  |
+**id** | **int** |  | [optional] [readonly]
+**name** | **string** |  |
+**required_feeds** | **string[]** |  | [optional]
+**type** | **string** |  | [optional] [readonly]
+**utm_campaign** | **string** |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

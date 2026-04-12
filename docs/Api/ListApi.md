@@ -1,34 +1,42 @@
 # MailMojo\ListApi
 
-All URIs are relative to *https://api.mailmojo.no*
-
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createList**](ListApi.md#createList) | **POST** /v1/lists/ | Create an email list.
-[**createSegment**](ListApi.md#createSegment) | **POST** /v1/lists/{list_id}/segments/ | Create a segment in the email list.
-[**getListById**](ListApi.md#getListById) | **GET** /v1/lists/{list_id}/ | Retrieve an email list.
-[**getLists**](ListApi.md#getLists) | **GET** /v1/lists/ | Retrieve all email lists.
-[**getSubscriberOnListByEmail**](ListApi.md#getSubscriberOnListByEmail) | **GET** /v1/lists/{list_id}/subscribers/{email}/ | Retrieve a subscriber.
-[**getSubscribersOnList**](ListApi.md#getSubscribersOnList) | **GET** /v1/lists/{list_id}/subscribers/ | Retrieve subscribers on a list.
-[**getUnsubscribedOnList**](ListApi.md#getUnsubscribedOnList) | **GET** /v1/lists/{list_id}/unsubscribed/ | Retrieve unsubscribed contacts on a list.
-[**importSubscribersToList**](ListApi.md#importSubscribersToList) | **POST** /v1/lists/{list_id}/subscribers/import/ | Subscribe contacts to the email list.
-[**subscribeContactToList**](ListApi.md#subscribeContactToList) | **POST** /v1/lists/{list_id}/subscribers/ | Subscribe a contact to the email list.
-[**unsubscribeContactOnListByEmail**](ListApi.md#unsubscribeContactOnListByEmail) | **DELETE** /v1/lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact.
-[**updateList**](ListApi.md#updateList) | **PATCH** /v1/lists/{list_id}/ | Update an email list partially.
 
 
-# **createList**
-> \MailMojo\Model\ModelList createList($list)
+All URIs are relative to http://api.mailmojo.no, except if the operation defines another base path.
+
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createList()**](ListApi.md#createList) | **POST** /v1/lists/ | Create an email list. |
+| [**createSegment()**](ListApi.md#createSegment) | **POST** /v1/lists/{list_id}/segments/ | Create a segment in the email list. |
+| [**getListById()**](ListApi.md#getListById) | **GET** /v1/lists/{list_id}/ | Retrieve an email list. |
+| [**getLists()**](ListApi.md#getLists) | **GET** /v1/lists/ | Retrieve all email lists. |
+| [**getSubscriberOnListByEmail()**](ListApi.md#getSubscriberOnListByEmail) | **GET** /v1/lists/{list_id}/subscribers/{email}/ | Retrieve a subscriber. |
+| [**getSubscribersOnList()**](ListApi.md#getSubscribersOnList) | **GET** /v1/lists/{list_id}/subscribers/ | Retrieve subscribers on a list. |
+| [**getUnsubscribedOnList()**](ListApi.md#getUnsubscribedOnList) | **GET** /v1/lists/{list_id}/unsubscribed/ | Retrieve unsubscribed contacts on a list. |
+| [**importSubscribersToList()**](ListApi.md#importSubscribersToList) | **POST** /v1/lists/{list_id}/subscribers/import/ | Subscribe contacts to the email list. |
+| [**subscribeContactToList()**](ListApi.md#subscribeContactToList) | **POST** /v1/lists/{list_id}/subscribers/ | Subscribe a contact to the email list. |
+| [**unsubscribeContactOnListByEmail()**](ListApi.md#unsubscribeContactOnListByEmail) | **DELETE** /v1/lists/{list_id}/subscribers/{email}/ | Unsubscribe a contact. |
+| [**updateList()**](ListApi.md#updateList) | **PATCH** /v1/lists/{list_id}/ | Update an email list partially. |
+
+
+## `createList()`
+
+```php
+createList($list): \MailMojo\Model\ModelList
+```
 
 Create an email list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -36,7 +44,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     new GuzzleHttp\Client(),
     $config
 );
-$list = new \MailMojo\Model\ModelList(); // \MailMojo\Model\ModelList | 
+$list = new \MailMojo\Model\ModelList(); // \MailMojo\Model\ModelList
 
 try {
     $result = $apiInstance->createList($list);
@@ -44,14 +52,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->createList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list** | [**\MailMojo\Model\ModelList**](../Model/ModelList.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list** | [**\MailMojo\Model\ModelList**](../Model/ModelList.md)|  | |
 
 ### Return type
 
@@ -63,23 +70,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **createSegment**
-> \MailMojo\Model\Segment createSegment($list_id, $segment)
+## `createSegment()`
+
+```php
+createSegment($list_id, $segment): \MailMojo\Model\Segment
+```
 
 Create a segment in the email list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -88,7 +103,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to create a segment in.
-$segment = new \MailMojo\Model\SegmentCreation(); // \MailMojo\Model\SegmentCreation | 
+$segment = new \MailMojo\Model\SegmentCreation(); // \MailMojo\Model\SegmentCreation
 
 try {
     $result = $apiInstance->createSegment($list_id, $segment);
@@ -96,15 +111,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->createSegment: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to create a segment in. |
- **segment** | [**\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to create a segment in. | |
+| **segment** | [**\MailMojo\Model\SegmentCreation**](../Model/SegmentCreation.md)|  | |
 
 ### Return type
 
@@ -116,23 +130,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getListById**
-> \MailMojo\Model\ListDetail getListById($list_id)
+## `getListById()`
+
+```php
+getListById($list_id): \MailMojo\Model\ListDetail
+```
 
 Retrieve an email list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -148,14 +170,13 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->getListById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to retrieve. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to retrieve. | |
 
 ### Return type
 
@@ -167,23 +188,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getLists**
-> \MailMojo\Model\ModelList[] getLists()
+## `getLists()`
+
+```php
+getLists(): \MailMojo\Model\ModelList[]
+```
 
 Retrieve all email lists.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -198,10 +227,10 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->getLists: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -214,23 +243,31 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getSubscriberOnListByEmail**
-> \MailMojo\Model\Subscriber getSubscriberOnListByEmail($list_id, $email)
+## `getSubscriberOnListByEmail()`
+
+```php
+getSubscriberOnListByEmail($list_id, $email): \MailMojo\Model\Subscriber
+```
 
 Retrieve a subscriber.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -239,7 +276,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to retrieve the subscriber from.
-$email = "email_example"; // string | Email address of the contact to retrieve.
+$email = 'email_example'; // string | Email address of the contact to retrieve.
 
 try {
     $result = $apiInstance->getSubscriberOnListByEmail($list_id, $email);
@@ -247,15 +284,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->getSubscriberOnListByEmail: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to retrieve the subscriber from. |
- **email** | **string**| Email address of the contact to retrieve. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to retrieve the subscriber from. | |
+| **email** | **string**| Email address of the contact to retrieve. | |
 
 ### Return type
 
@@ -267,23 +303,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getSubscribersOnList**
-> \MailMojo\Model\Subscriber[] getSubscribersOnList($list_id, $search, $limit, $offset)
+## `getSubscribersOnList()`
+
+```php
+getSubscribersOnList($list_id, $search, $limit, $offset): \MailMojo\Model\Subscriber[]
+```
 
 Retrieve subscribers on a list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -292,7 +336,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list.
-$search = "search_example"; // string | Filter by partial email address or name.
+$search = 'search_example'; // string | Filter by partial email address or name.
 $limit = 56; // int | Limits the result to given count.
 $offset = 56; // int | Skips the given count of contacts before returning results.
 
@@ -302,17 +346,16 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->getSubscribersOnList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list. |
- **search** | **string**| Filter by partial email address or name. | [optional]
- **limit** | **int**| Limits the result to given count. | [optional]
- **offset** | **int**| Skips the given count of contacts before returning results. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list. | |
+| **search** | **string**| Filter by partial email address or name. | [optional] |
+| **limit** | **int**| Limits the result to given count. | [optional] |
+| **offset** | **int**| Skips the given count of contacts before returning results. | [optional] |
 
 ### Return type
 
@@ -324,23 +367,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getUnsubscribedOnList**
-> \MailMojo\Model\Contact[] getUnsubscribedOnList($list_id, $limit, $offset)
+## `getUnsubscribedOnList()`
+
+```php
+getUnsubscribedOnList($list_id, $limit, $offset): \MailMojo\Model\Contact[]
+```
 
 Retrieve unsubscribed contacts on a list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -358,16 +409,15 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->getUnsubscribedOnList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list. |
- **limit** | **int**| Limits the result to given count. | [optional]
- **offset** | **int**| Skips the given count of contacts before returning results. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list. | |
+| **limit** | **int**| Limits the result to given count. | [optional] |
+| **offset** | **int**| Skips the given count of contacts before returning results. | [optional] |
 
 ### Return type
 
@@ -379,23 +429,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **importSubscribersToList**
-> \MailMojo\Model\ImportResult importSubscribersToList($list_id, $contacts)
+## `importSubscribersToList()`
+
+```php
+importSubscribersToList($list_id, $contacts): \MailMojo\Model\ImportResult
+```
 
 Subscribe contacts to the email list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -404,7 +462,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to subscribe to.
-$contacts = "contacts_example"; // string | 
+$contacts = 'contacts_example'; // string
 
 try {
     $result = $apiInstance->importSubscribersToList($list_id, $contacts);
@@ -412,15 +470,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->importSubscribersToList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to subscribe to. |
- **contacts** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to subscribe to. | |
+| **contacts** | **string**|  | |
 
 ### Return type
 
@@ -432,23 +489,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/csv
- - **Accept**: application/json
+- **Content-Type**: `text/csv`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **subscribeContactToList**
-> \MailMojo\Model\Contact subscribeContactToList($list_id, $contact)
+## `subscribeContactToList()`
+
+```php
+subscribeContactToList($list_id, $contact): \MailMojo\Model\Contact
+```
 
 Subscribe a contact to the email list.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -457,7 +522,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to subscribe to.
-$contact = new \MailMojo\Model\Subscriber(); // \MailMojo\Model\Subscriber | 
+$contact = new \MailMojo\Model\Subscriber(); // \MailMojo\Model\Subscriber
 
 try {
     $result = $apiInstance->subscribeContactToList($list_id, $contact);
@@ -465,15 +530,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->subscribeContactToList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to subscribe to. |
- **contact** | [**\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to subscribe to. | |
+| **contact** | [**\MailMojo\Model\Subscriber**](../Model/Subscriber.md)|  | |
 
 ### Return type
 
@@ -485,23 +549,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **unsubscribeContactOnListByEmail**
-> \MailMojo\Model\Contact unsubscribeContactOnListByEmail($list_id, $email)
+## `unsubscribeContactOnListByEmail()`
+
+```php
+unsubscribeContactOnListByEmail($list_id, $email): \MailMojo\Model\Contact
+```
 
 Unsubscribe a contact.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -510,7 +582,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to unsubscribe from.
-$email = "email_example"; // string | Email address of the contact to unsubscribe.
+$email = 'email_example'; // string | Email address of the contact to unsubscribe.
 
 try {
     $result = $apiInstance->unsubscribeContactOnListByEmail($list_id, $email);
@@ -518,15 +590,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->unsubscribeContactOnListByEmail: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to unsubscribe from. |
- **email** | **string**| Email address of the contact to unsubscribe. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to unsubscribe from. | |
+| **email** | **string**| Email address of the contact to unsubscribe. | |
 
 ### Return type
 
@@ -538,23 +609,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **updateList**
-> \MailMojo\Model\ListDetail updateList($list_id, $list)
+## `updateList()`
+
+```php
+updateList($list_id, $list): \MailMojo\Model\ListDetail
+```
 
 Update an email list partially.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 // Configure OAuth2 access token for authorization: mailmojo_auth
 $config = MailMojo\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new MailMojo\Api\ListApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -563,7 +642,7 @@ $apiInstance = new MailMojo\Api\ListApi(
     $config
 );
 $list_id = 56; // int | ID of the email list to retrieve.
-$list = new \MailMojo\Model\ListDetail(); // \MailMojo\Model\ListDetail | 
+$list = new \MailMojo\Model\ListDetail(); // \MailMojo\Model\ListDetail
 
 try {
     $result = $apiInstance->updateList($list_id, $list);
@@ -571,15 +650,14 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ListApi->updateList: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **int**| ID of the email list to retrieve. |
- **list** | [**\MailMojo\Model\ListDetail**](../Model/ListDetail.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **list_id** | **int**| ID of the email list to retrieve. | |
+| **list** | [**\MailMojo\Model\ListDetail**](../Model/ListDetail.md)|  | [optional] |
 
 ### Return type
 
@@ -591,8 +669,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
